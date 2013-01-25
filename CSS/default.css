@@ -1,0 +1,202 @@
+table.tdmessage {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+}
+
+
+
+img.tdmessage { 
+  border : none;
+}
+
+.tdmessage1 {
+	height: 30px;
+	background-color:#FF6;
+	color:#009;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #000;
+}
+
+.amessage{
+	color:#009;
+	text-decoration: none;
+}
+.amessage:hover{
+	color:#009;
+	text-decoration: none;
+}
+.tdmessage2 {
+  color:#009;
+	height: 30px;
+	background-color:#FC6;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #000;
+}
+
+.table_menu{
+	width: 100%;
+}
+
+.menu {
+	width: 20%;
+	background-color:#699;
+	text-align:center;
+	color: #FFF;
+	text-decoration: none;
+}
+
+
+
+fieldset
+{
+	border-color: #09F;
+}
+
+a 
+{
+	color:#2DCAF2;
+	text-decoration: none;
+	
+}
+
+a:hover 
+{
+	color:#000000;
+	text-decoration: none;
+}
+
+body {
+	font: 11px Verdana, Arial, Helvetica, sans-serif;
+	background: #F3F3F3;
+	margin: 0; /* il est conseillé de mettre à zéro la marge et le remplissage de l'élément body, pour tenir compte des différentes valeurs par défaut des navigateurs */
+	padding: 0;
+	text-align: center; /* ce paramétrage centre le conteneur dans les navigateurs IE 5.x. Le texte est ensuite aligné à gauche (valeur par défaut) dans le sélecteur #container */
+	color: #000000;
+}
+
+.container 
+{
+	width: 780px;  /* paramétrage de la largeur à 20 pixels de moins que le plein écran (800 pixels) pour tenir compte de l'habillage du navigateur et éviter l'apparition d'un ascenseur horizontal */
+	background: #FFFFFF;
+	border: 1px;
+	border-style: solid;
+	/*border-color: #09F;*/
+	text-align: left; /* ce paramétrage annule le paramètre text-align: center de l'élément body. */
+	/* les marges automatiques (et dotées d'une largeur positive) centrent la page */
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.mainBody
+{
+	 margin-left: 40px; 
+	 margin-right: 40px; 
+	 color: #000000;
+}
+
+.header
+{
+	padding: 0 10px 0 20px;  /* ce remplissage correspond à l'alignement à gauche des éléments des div qui apparaissent en dessous. Si, au lieu de texte, c'est une image qui est insérée dans l'élément #header, il est conseillé de supprimer le remplissage. */
+
+}
+
+.footer
+{
+	padding: 10px 10px 0 20px; /* ce remplissage correspond à l'alignement à gauche des éléments des div qui apparaissent au-dessus. */
+	background: #FFFFFF;
+}
+
+.biglogo {
+	background: url("../images/logo_cmd_web.png");
+	width:272px;
+	height:78px;
+	margin-top:10px;
+}
+
+.logo {
+	background: url("../images/logo_cmd_web.png");
+	width:25px;
+	height:19px;
+}
+
+.linkblack
+{
+	color: #000;
+}
+
+#vpsselector
+{
+	display: none;
+}
+
+/*------------------------------------------------------*/
+/*Style pour la fonction Message*/
+/*------------------------------------------------------*/
+
+.info
+{
+	color:#000000;
+}
+
+.erreur
+{
+	color:#FF0000;
+	text-align:center;
+	font-weight: bold;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.ok
+{
+	color:#000000;
+	text-align:center;
+	font-weight: bold;
+	background-color: #D6FBFF;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.alerte
+{
+	color:#F00;
+	text-align:center;
+	font-weight: bold;
+	background-color: #D6FBFF;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+
+/*------------------------------------------------------*/
+/*Style du panneau d'administration*/
+/*------------------------------------------------------*/
+
+.tabletitle
+{
+	background-color: #CCC;
+	font-weight: bold;
+	text-align: center;
+	color: #000;
+}
+
+.tablelink
+{
+	color: #000;
+	text-decoration: underline;
+}
+
+.tableimpair
+{
+	background-color: #E7F0F9;	
+}
+
+.tablepair
+{
+	background-color: #F0F7FF;
+}
