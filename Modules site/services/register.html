@@ -1,0 +1,197 @@
+
+<table border="0" widtd="815">
+					<tr>
+						<td valign="top">
+							INCLUDE_PAGE{include/menu}
+							INCLUDE_PAGE{include/menu_support}
+						</td>
+						<td valign="top">							
+							<div class="divoffretitle">
+								{V_CMD_TITRE}
+							</div>
+							<img src="images/barre.png" width="400" height="10" alt=""/>
+<style>
+
+.celinter/* Toutes les cellules des tableaux... */
+{
+  color:#000000;
+  font-size:12px;
+  font-weight:lighter;
+    text-align:left;
+
+}
+.erreur{
+  color:#000000;
+  font-size:12px;
+  font-weight:bold;
+  text-align:center;
+
+}
+.form{
+  color:#000000;
+  font-size:12px;
+  font-weight:bold;
+  text-align:center;
+
+}
+
+.infotype
+{
+  color:#0066FF;
+  font-size:12px;
+  font-weight:bold;
+  background-color:#BDE8E2;
+  text-align:center;
+
+
+ }
+ 
+.exemple
+{
+  color:#99A1A0;
+  font-size:10px;
+  font-weight:italique;
+
+
+ }
+</style>
+<div class="erreur">{V_CMD_ERREUR}</div>
+				<form id="form1" name="form1" method="post" action="index.php?lang=fr&page=enregistrement&send=send">
+                    <table width="100%" border="0">
+                         <tr>
+                         <td class="celinter" ><br /></td>
+                          <td></td>
+                        </tr>
+					  <tr>
+                         <th class="infotype" >Informations g&eacute;n&eacute;rales</th>
+                         
+                        </tr>
+                      
+                        <tr>
+                         <td class="celinter" ><br /></td>
+                          <td></td>
+                        </tr>
+                      
+						 <tr>
+                         <td class="celinter" >Vous &ecirc;tes :</td>
+                          <td><select name="status" class="form">
+						  
+						  <option value="1">Particulier</option>
+						  <option value="2">Soci&eacute;t&eacute;</option>
+						  <option value="3">Association</option>
+						  <option value="GROIN">Autre</option>
+						  </select>
+						  </td>
+						  
+                        </tr>
+                        <tr>
+                         <td class="celinter" >Nom :</td>
+                          <td><input type="text" class="form" name="nom" id="nom" value="{nom}"/></td>
+                        </tr>
+                        <tr>
+                         <td class="celinter" >Pr&eacute;nom :</td>
+                          <td><input type="text"  class="form" name="prenom" id="prenom" value="{prenom}"/></td>
+                        </tr>
+                        <tr>
+                         <td class="celinter" >Adresse :</td>
+                          <td><textarea name="adresse" class="form"  rows="3" class="" style="width: 280px;" id="adresse">{adresse}</textarea></td>
+                        </tr>
+                        <tr>
+                         <td class="celinter" >Code postal :</td>
+                          <td><input type="text" class="form" name="codezip" id="codezip" maxlength="5" value="{codezip}"/></td>
+                        </tr>
+                        <tr>
+                         <td class="celinter" >Ville :</td>
+                          <td><input type="text" class="form" name="ville" id="ville" value="{ville}"/></td>
+                        </tr>
+						
+						 <tr>
+                         <td class="celinter" >Pays :</td>
+                          <td><input type="text" class="form" name="pays" id="pays" value="{pays}"/></td>
+                        </tr>
+						   <tr>
+                         <td class="celinter" ><br /></td>
+                          <td></td>
+                        </tr>
+						  <tr>
+                         <th class="infotype" >Informations de contact</th>
+                         
+                        </tr>
+                      
+                        <tr>
+                         <td class="celinter" ><br /></td>
+                          <td></td>
+                        </tr>
+						
+						  <tr>
+                         <td class="celinter" >T&eacute;l&eacute;phone fixe : <div class="exemple">(+33.123456789)</div></td>
+                          <td><input type="text" class="form" name="tel_fixe" id="tel_fixe" value="{tel_fixe}"/></td>
+                        </tr>
+                        <tr>
+                         <td class="celinter" >T&eacute;l&eacute;phone mobile : <div class="exemple">(+33.623456789)</div></td>
+                          <td><input type="text" class="form" name="tel_mobile" id="tel_mobile" value="{tel_mobile}"/></td>
+                        </tr>
+                        <tr>
+                         <td class="celinter" >Email :</td>
+                          <td><input type="text" class="form" name="mail" id="mail" value="{mail}"/></td>
+                        </tr>
+                        <tr>
+                         <td class="celinter" >V&eacute;rification Email :</td>
+                          <td><input type="text" class="form" name="mailconf" id="mailconf" value="{mailconf}"/></td>
+                        </tr>
+						
+						   <tr>
+                         <td class="celinter" ><br /></td>
+                          <td></td>
+                        </tr>
+						  <tr>
+                         <th class="infotype" >Informations de connexion</th>
+                         
+                        </tr>
+                      
+                        <tr>
+                         <td class="celinter" ><br /></td>
+                          <td></td>
+                        </tr>
+						
+						  <tr>
+                           <td class="celinter" >Mot de passe :</td>
+                            <td><input type="password"  class="form"name="pass" id="pass" /></td>
+                        </tr>
+						
+						 <tr>
+                           <td class="celinter" >V&eacute;rification Mot de passe :</td>
+                            <td><input type="password" class="form" name="verifpassword" id="pass" /></td>
+                        </tr>
+								
+						   <tr>
+                         <td class="celinter" ><br /></td>
+                          <td></td>
+                        </tr>
+						  <tr>
+                         <th class="infotype" >Informations divers</th>
+                         
+                        </tr>
+                      
+                        <tr>
+                         <td class="celinter" ><br /></td>
+                          <td></td>
+                        </tr>
+						
+						 <tr>
+                         <td class="celinter" >Comment avez-vous connue CMD-web ? :</td>
+                          <td><input type="text" name="connuecmd" class="form" id="mailconf" value="{connuecmd}"/></td>
+                        </tr>
+						<input type="hidden" name="RED" value="{V_CMD_RED}" />
+					
+						
+                    </table>
+                              <input type="submit" name="Envoyer" id="Envoyer" value="Envoyer" />
+                      
+                  
+</form>
+			
+	
+						</td>
+					</tr>
+				</table>
