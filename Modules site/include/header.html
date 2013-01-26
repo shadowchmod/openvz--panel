@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{L_TITLE}</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="css/thickbox.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/thickbox.js"></script>
+	
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+		try {
+			var pageTracker = _gat._getTracker("UA-7575297-1");
+			pageTracker._setDomainName("none");
+			pageTracker._setAllowLinker(true);
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</head>
+
+<body>
+	<div class="divcontainer">
+		<div class="divbanniere">
+			<div class="divupperleft">
+				{L_ADVERTISEMENT}
+			</div>
+			<div class="divupperright">	
+				<a href="index.php?lang=fr{V_GET}"><img class="imagelink" src="images/lang/fr.png" alt=""/></a>
+				<a href="index.php?lang=en{V_GET}"><img class="imagelink" src="images/lang/en.png" alt=""/></a>
+				<a href="index.php?lang=it{V_GET}"><img class="imagelink" src="images/lang/it.png" alt=""/></a>
+				<!--
+				<a href="index.php?lang=spa"><img class="imagelink" src="images/lang/es.png" alt=""/></a>
+				-->
+			</div>
+			<div class="divlogo" onclick="javascript:window.location.href='index.php?lang={V_LANG}';">
+			</div>
+			<div class="divlogin">
+				<form method="post" action="http://cmd-web.eu/dologin.php?goto=clientarea">
+					<table class="tableform">
+						<tr>
+							<td>LOGIN:</td>
+							<td><input type="text" name="username" id="textfield2" class="input" size="6" /></td>
+							<td>PASSE:</td>
+							<td><input type="text" name="password" id="textfield3" class="input" size="6" /></td>
+							<td><input name="envoyer" src="images/go.png" type="image" /></td>
+						</tr>
+					</table>	
+				<input type="hidden" name="token" value="20811b40e89b45fee3b465d89a2227a93f585cdb" />
+				</form>
+			</div>
+			<div class="divmenu">
+				<a class="divmenulink" href="index.php?lang={V_LANG}&amp;page=hosting">{L_HOSTING}</a> | 
+				<a class="divmenulink" href="index.php?lang={V_LANG}&amp;page=hosting&amp;host=rev50">{L_RESELLER_HOSTING}</a> | 
+				<a class="divmenulink" href="index.php?lang={V_LANG}&amp;page=vps">{L_VPS}</a> |  
+				<a class="divmenulink" href="index.php?lang={V_LANG}&amp;page=dedicated">{L_DEDICATED_SERVER}</a> |
+				<a class="divmenulink" href="index.php?lang={V_LANG}&amp;page=streaming">{L_STREAMING}</a> |
+				<a class="divmenulink" href="index.php?lang={V_LANG}&amp;page=otherservices">{L_MENU_OTHER_SERVICES}</a>
+			</div>
+			<div class="divdomaine">
+				<form action="http://cmd-web.eu/cart.php?a=add&amp;domain=register" method="post">
+					<input type="hidden" name="token" value="3e079f607a60dbc06d2948b7b5f4753226844e5d" /> 
+					<table border="0">
+						<tr>	
+							<td>			
+								<span>{L_MENU_DOMAIN_NAME}:</span>
+							</td>
+							<td>
+								<input name="sld" type="text" id="textfield" size="20" />
+								<select name="tld" id="select" >
+									<option value=".fr">.fr</option>
+									<option value=".com">.com</option>
+									<option value=".net">.net</option>
+									<option value=".biz">.biz</option>
+									<option value=".info">.info</option>
+									<option value=".org">.org</option>
+									<option value=".eu">.eu</option>
+									<option value=".be">.be</option>
+									<option value=".mobi">.mobi</option>
+									<option value=".in">.in</option>
+								</select>
+							</td>
+							<td>
+								<input name="envoyer2" src="images/go.png" type="image" />
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<div class="divbody">
+			<div class="divsubbody">

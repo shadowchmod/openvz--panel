@@ -1,0 +1,51 @@
+				<table border="0" width="815">
+					<tr>
+						<td valign="top">
+							INCLUDE_PAGE{include/menu}
+							INCLUDE_PAGE{include/menu_support}
+						</td>
+						<td valign="top">							
+							<div class="divoffretitle">
+								{L_CONTACT_US}
+							</div>
+							<img src="images/barre.png" width="400" height="10" alt=""/>
+							{V_MESSAGES}
+							<form action='index.php?lang={V_LANG}&page=contact' style="text-align:left; color:#000000" method='post' >
+								<input type='hidden' name='send' value="1" size='1'/>
+								<table class="tablesubbody">
+									<tr>
+										<td>
+										{L_YOUR_MAIL}
+										</td>
+										<td>
+											<input type='text' name='email' size='30' />
+										</td>
+									</tr>											
+									<tr>
+										<td>
+											{L_MAIL_SUBJECT}
+										</td>
+										<td>
+											<input type='text' name='subject' size='30' />
+										</td>
+									</tr>											
+									<tr>
+										<td>
+											{L_YOUR_MESSAGE}
+										</td>
+										<td>
+											<textarea name="message" cols="45" rows="10" ></textarea>
+										</td>
+									</tr>														
+									<tr>
+										<td>
+										</td>											
+										<td>
+											<input type='submit' value='Envoyer' />
+										</td>
+									</tr>
+								</table>
+							</form>					
+						</td>
+					</tr>
+				</table>
