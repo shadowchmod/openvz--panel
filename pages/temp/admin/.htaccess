@@ -1,0 +1,3 @@
+AuthUserFile .pass
+AuthName "Accès protégé"
+AuthType Basic
