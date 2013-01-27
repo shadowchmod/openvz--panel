@@ -1,0 +1,606 @@
+
+
+#step-bar {
+    float: left;
+    width: 150px;
+    display: block; 
+    margin-left: 1px;
+    text-align: center;
+    background: transparent url(/themes/default/images/order/step-bar/stepbar-bg.png) repeat-y 0 0;
+}
+
+#content {
+    float: left; 
+    margin: 0; 
+    padding: 0; 
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 622px;
+}
+
+
+
+/*  #####################################################################  */
+/*  Step Bar styles */
+/*  #####################################################################  */
+
+#step-bar a, #step-bar a:active, #step-bar a:visited, #step-bar a:hover {
+    float: left;
+    width: 148px;
+    height: 26px;
+    display: block;
+    margin-top: 5px;
+}
+    #step-bar a.domain                 { background: transparent url(/themes/default/images/order/step-bar/domain-inactive.png) no-repeat 0 0; }
+    #step-bar a.domain:hover           { background: transparent url(/themes/default/images/order/step-bar/domain-active.png) no-repeat 0 0; }
+    #step-bar a.domain-active          { background: transparent url(/themes/default/images/order/step-bar/domain-active.png) no-repeat 0 0; }
+    #step-bar a.domain-valid           { background: transparent url(/themes/default/images/order/step-bar/domain-done.png) no-repeat 0 0; }
+    #step-bar a.domain-active:hover, #step-bar a.domain-valid:hover    { background: transparent url(/themes/default/images/order/step-bar/domain-active.png) no-repeat 0 0; }
+
+    #step-bar a.hosting                { background: transparent url(/themes/default/images/order/step-bar/hosting-inactive.png) no-repeat 0 0; }
+    #step-bar a.hosting:hover          { background: transparent url(/themes/default/images/order/step-bar/hosting-active.png) no-repeat 0 0; }
+    #step-bar a.hosting-active         { background: transparent url(/themes/default/images/order/step-bar/hosting-active.png) no-repeat 0 0; }
+    #step-bar a.hosting-valid          { background: transparent url(/themes/default/images/order/step-bar/hosting-done.png) no-repeat 0 0; }
+    #step-bar a.hosting-active:hover, #step-bar a.hosting-valid:hover   { background: transparent url(/themes/default/images/order/step-bar/hosting-active.png) no-repeat 0 0; }
+
+    #step-bar a.session                   { background: transparent url(/themes/default/images/order/step-bar/ident-inactive.png) no-repeat 0 0; }
+    #step-bar a.session:hover             { background: transparent url(/themes/default/images/order/step-bar/ident-active.png) no-repeat 0 0; }
+    #step-bar a.session-active            { background: transparent url(/themes/default/images/order/step-bar/ident-active.png) no-repeat 0 0; }
+    #step-bar a.session-valid             { background: transparent url(/themes/default/images/order/step-bar/ident-done.png) no-repeat 0 0; }
+    #step-bar a.session-active:hover, #step-bar a.session-valid:hover { background: transparent url(/themes/default/images/order/step-bar/ident-active.png) no-repeat 0 0; }
+
+    #step-bar a.validation                { background: transparent url(/themes/default/images/order/step-bar/valid-inactive.png) no-repeat 0 0; }
+    #step-bar a.validation:hover          { background: transparent url(/themes/default/images/order/step-bar/valid-active.png) no-repeat 0 0; }
+    #step-bar a.validation-active         { background: transparent url(/themes/default/images/order/step-bar/valid-active.png) no-repeat 0 0; }
+    #step-bar a.validation-valid          { background: transparent url(/themes/default/images/order/step-bar/valid-done.png) no-repeat 0 0; }
+    #step-bar a.validation-active:hover, #step-bar a.validation-valid:hover   { background: transparent url(/themes/default/images/order/step-bar/valid-active.png) no-repeat 0 0; }
+
+#step-bar div.minimum-height-debugger {
+    margin: 0; 
+    padding: 0; 
+    width: 1px;
+    float: left; 
+    height: 400px;
+    background: transparent;
+}
+
+#step-bar div.bottom {
+    clear: both; 
+    margin: 0; 
+    padding: 0;
+    width: 150px;
+    background: white url(/themes/default/images/order/step-bar/stepbar-bottom.png) no-repeat 0 0;
+}
+
+#step-bar div.summary {
+    float: left;
+    display: block; 
+    width: 146px;
+    margin-top: 8px;
+}
+
+#step-bar a.nolink {
+    margin: 0; 
+    padding: 0;
+    cursor: text;
+    text-decoration: none;
+    color: none;
+}
+
+#step-bar ul { margin: 0; padding: 0; }
+
+#step-bar ul li {
+    margin-left: 10px;
+    list-style-type: none;
+    list-style-image: none;
+    font-size: 12px;
+    text-indent: 15px;
+    color: #666666; 
+    background: transparent url(/themes/default/images/order/step-bar/li-todo.png) no-repeat 0 3px;
+    cursor: pointer;
+    cursor: hand;
+}
+    #step-bar ul li a { color: #666666; }
+    
+    #step-bar ul li.active   { color: #0068b1; background: transparent url(/themes/default/images/order/step-bar/li-active.png) no-repeat 0 3px; font-weight: bold; margin-left: 20px; }
+    #step-bar ul li.active a { color: #0068b1; }
+    
+    #step-bar ul li.done    { color: #4E9A06; background: transparent url(/themes/default/images/order/step-bar/li-done.png) no-repeat 0 3px; }
+    #step-bar ul li.done a  { color: #4E9A06; }
+
+
+/*  #####################################################################  */
+/*  Content styles */
+/*  #####################################################################  */
+
+/* common basics styles */
+    * { font-family: "Arial", "Geneva", "Freesans", "Nimbus Sans L", "Sans-serif", "Sans" ; font-size: 12px; color: #666666; line-height: 14px; text-align: left; }
+    a img { border: 0; }
+    p { margin: 0; padding: 0; }
+
+    a:link, a:visited, a:active, a {
+        text-decoration: underline;
+        color: #0068b1;
+    }
+
+    a:hover { text-decoration: none; color: #0068b1;  }
+   
+    a.green, a.green:hover  { color: #4E9A06; }
+   
+
+    
+    div.light { background: #cedaeb;  display: block; }
+    .red    { color: #ff0000; }
+    .blue   { color: #0068b1; }
+    .purple { color: #8a50c5; }
+    .grey   { color: #666666; }
+    .green  { color: #4E9A06; }
+    
+    
+    .bold  { font-weight: bold; }
+    .thin  { font-weight: normal; }
+    .small { font-size: 9px; }
+    
+    .center { text-align: center; }
+    .middle { vertical-align: middle; }
+    .right  { text-align: right;  }
+    .left  { text-align: left;  }
+   
+    .Fright, 
+    .Fleft { display: block;}
+    .Fright { float: right; }
+    .Fleft  { float: left;  }
+    
+    .nopad { padding: 0px; margin: 0; }
+    .padded { padding: 3px; }
+    p.padded { padding: 5px; }
+   
+   
+    ul { margin: 0; padding: 0; margin-left: 20px;}
+    
+        ul li {
+            margin-left: 8px;
+            list-style-type: none;
+            list-style-image: none;
+            font-size: 12px;
+        }
+        ul.purple li { list-style-image: url(/themes/default/images/shared/listImagePurple.gif); color: #8a50c5; }
+        ul.grey li   { list-style-image: url(/themes/default/images/shared/listImageGrey.gif);   color: #666666; }
+        ul.blue li   { list-style-image: url(/themes/default/images/shared/listImage.gif);       color: #0068b1; }
+        ul.red li    { list-style-image: url(/themes/default/images/shared/listImageRed.gif);    color: #880000; }
+        
+        ul.purpleButGrey li { list-style-image: url(/themes/default/images/shared/listImagePurple.gif); color: #666666; }
+        ul.blueButGrey li   { list-style-image: url(/themes/default/images/shared/listImage.gif);       color: #666666; }
+        ul.redButGrey li    { list-style-image: url(/themes/default/images/shared/listImageRed.gif);    color: #666666; }
+
+    
+/* order content structure styles */
+    h6 {
+        margin: 0; 
+        padding: 0; 
+        width: 100%; 
+        height: 30px;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 30px;
+        text-indent: 15px;
+        font-variant: none;
+        font-style: normal;
+        text-decoration: none; 
+        vertical-align: middle;
+        background: url(/themes/default/images/order/h6.png) repeat-x 0 0;
+    }
+
+    h2 {
+        background: #0068b1;
+        color: #ffffff;
+        text-indent: 15px;
+    }
+
+/* form inputs styling */
+
+button, label { cursor: pointer; cursor: hand; }
+select, label, button, input { vertical-align: middle; }
+textarea { vertical-align: top; }
+
+input, textarea, select { 
+    font-size: 12px; 
+    color: #0068B1; 
+    border-color: #0068b1;  
+}
+
+input, select, textarea {
+    font-size: 12px; 
+    text-indent: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+td.error, div.error, label.error, td.error, legend.error, fieldset.error {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+td.error, div.error, label.error, input.error, textarea.error, label.error, select.error, fieldset.error {
+    border: 2px solid #ff0000;    
+    color: #ff0000; 
+}
+
+textarea { margin: 0; padding: 0; }
+
+.domainChooser { width: 220px; }
+
+
+a.submit, a.submit:visited, a.submit:active, 
+a.refresh, a.refresh:visited, a.refresh:active {
+    border: 0;
+    height: 20px;
+    line-height: 20px;
+    width: 115px;
+    display: block;
+    background: transparent url(/themes/default/images/order/submit.png) no-repeat 50% 0%; 
+    text-decoration: none;
+    float: right;
+    cursor: pointer;
+}
+a.submit:hover { background: transparent url(/themes/default/images/order/submit.png) no-repeat 50% 100%; }
+a.refresh, a.refresh:visited, a.refresh:active { background: transparent url(/themes/default/images/order/refresh.png) no-repeat 50% 0%; }
+a.refresh:hover { background: transparent url(/themes/default/images/order/refresh.png) no-repeat 50% 100%; }
+
+a.return, a.return:visited, a.return:active {
+    border: 0;
+    height: 20px;
+    line-height: 20px;
+    width: 90px;
+    display: block;
+    background: transparent url(/themes/default/images/order/return.png) no-repeat 50% 0%; 
+    text-decoration: none;
+    float: left;
+    cursor: pointer;
+}
+a.return:hover { background: transparent url(/themes/default/images/order/return.png) no-repeat 50% 100%; }
+
+
+
+
+/* tables containing forms */
+table tr.title { background: #cedaeb; }
+table tr.title th {  text-align: left; color: #0068b1;  }
+
+table.price { background: #cbcbcb; text-align: center; }
+table.price tr.price { background: #ffffff; }
+table.price tr.title th { text-align: center; line-height: 19px;  }
+table tr.price img { margin: 3px; }
+
+table { padding: 5px; background: #ececec; margin: 0; width: 100%; }
+table tr { margin: 0px; }
+table tr.separate td:first-child { border-right: 1px solid #aaa; }
+table tr.separate th:first-child { border-right: 1px solid #aaa; }
+table tr th { line-height: 16px; text-align: center; }
+
+table tr.separate td table tr td:first-child, table tr.separate td table tr th:first-child { border: 0; }
+
+table .light { background: #efefef;  }
+
+
+
+
+
+
+/* themes from previous versions */
+
+.paiment_mode {
+    display: block; 
+    float: left; 
+    width: 215px; 
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-top: 14px;
+    padding: 2px;
+    border: 1px solid #ccc;
+    height: 140px;
+}
+
+.paiment_mode h2 {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0; 
+    padding: 2px; 
+    line-height: 17px;
+    background: #dedede;
+    border: 0;
+}
+
+.paiment_mode p {
+    padding: 10px;
+}   
+
+
+.paiment_mode a, .paiment_mode a img, .paiment_mode input {
+    border: 0; 
+    text-decoration: none;
+}   
+
+.paiment_mode .submit {
+    border: 1px solid #ccc;
+    background: #dedede;
+    text-decoration: none;
+    display: block; 
+    cursor: pointer;
+    float: right;
+    top: 100px; 
+    color: #0068b1;
+}  
+
+.paiment_explain {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 680px;
+    margin: 7px;
+}
+
+.paiment_explain * { color: #666; }
+
+h1 {
+    font-size: 13px;
+    color: #567eb9;
+    border-bottom: 1px solid #567eb9;
+}
+
+/* styles from domainChooser */
+.normal {
+    color: #666666;
+    font-weight: normal;
+}
+
+.available {
+    font-weight: bold;
+    color: #52A108;
+}
+
+div.nodc_suggestion label.available:after
+{
+    content: url(/images/available.png);
+    vertical-align: middle;
+}
+
+div.nodc_suggestion label.unavailable:after
+{
+    content: url(/images/unavailable.png);
+    vertical-align: middle;
+}
+
+.transferable {
+    color: orange;
+}
+
+.unavailable {
+    color: grey;
+    /* text-decoration: line-through; */
+}
+
+.renewable {
+    color: blue;
+}
+
+.nodc_action {
+    margin-top: 6px;
+    display: block;
+}
+
+.nodc_action:before {
+    content: url(/images/new.png);
+    vertical-align: middle;
+}
+
+.messageAvailable {
+    font-weight: bold;
+    color: #52A108;
+}
+
+.messageTransferable {
+    color: orange;
+}
+
+.messageUnavailable {
+    color: red;
+}
+
+.messageRenewable {
+    color: blue;
+}
+
+.full {
+    width: 100%;
+    display: block;
+}
+
+.block {
+    display: block;
+}
+
+a.choose_and_go, 
+a.choose_and_go:active, 
+a.choose_and_go:visited, 
+a.choose_and_go:hover {
+    width: 95px; 
+    line-height: 20px; 
+    text-indent: 30px; 
+    text-decoration: none; 
+    font-weight: bold;
+    background: transparent url(/themes/default/images/index/order_button_blue.gif) no-repeat;
+}
+
+a.add_more, 
+a.add_more:active, 
+a.add_more:visited, 
+a.add_more:hover {
+    width: 95px; 
+    line-height: 20px; 
+    text-indent: 30px; 
+    text-decoration: none; 
+    font-weight: bold;
+    background: transparent url(/themes/default/images/index/more_button.gif) no-repeat;
+}
+
+a.orderShortCut, 
+a.orderShortCut:active, 
+a.orderShortCut:visited, 
+a.orderShortCut:hover {
+    line-height: 20px; 
+    text-indent: 30px; 
+    text-decoration: none; 
+    font-weight: bold;
+    background: transparent url(/themes/default/images/index/orderII.gif) no-repeat;
+}
+
+.domainSearching {
+    margin: 1px;
+    padding: 1px;
+    padding-left: 23px;
+    background: transparent url(/images/ajax-loader.gif) no-repeat; /* TODO: could move this image to /themes/default/images/shared/loader.gif XXX Hey Francis what do you think ? */
+}
+.domainAvailable {
+    margin: 1px;
+    padding: 1px;
+    padding-left: 23px;
+    background: transparent url(/themes/default/images/shared/done.gif) no-repeat;
+}
+.domainUnavailable {
+    margin: 1px;
+    padding: 1px;
+    padding-left: 23px;
+    background: transparent url(/themes/default/images/shared/error.gif) no-repeat;
+}
+
+
+
+
+
+/* ========== tables params to display prices or usual tabbed infos ========= */
+
+div.displayOrder table td { vertical-align: middle; }
+div.displayOrder table img { vertical-align: middle; }
+div.displayOrder table.price tr.title { background: #cedaeb; }
+div.displayOrder table.price tr.title th {  text-align: left; color: #0068b1;  }
+div.displayOrder table.price tr th {  text-align: left; color: #666666;  }
+
+div.displayOrder table td.answer { color: #0068b1; vertical-align: middle; text-align: right; }
+
+div.displayOrder table.price tr.light { background: #ebebeb; }
+div.displayOrder table.price tr td.light { background: #ebebeb; font-size: 9px; color: #666666; }
+
+div.displayOrder table.price { background: #cbcbcb; text-align: center; }
+div.displayOrder table.price tr { background: #ffffff; }
+div.displayOrder table.price tr.title th { text-align: center; line-height: 19px;  }
+div.displayOrder table.price tr.light img, 
+div.displayOrder table.price tr.price img { margin: 3px; }
+
+div.displayOrder table th a, table th a:hover, table th a:active, table th a:visited {
+    font-weight: bold;
+    text-decoration: none;
+    color: #0068b1;
+}
+
+div.displayOrder table td.green { color: #1fc41f; font-weight: bold; text-align: right; }
+
+
+div.postit, td.postit, p.postit, span.postit {
+    background: rgb(255, 255, 171);
+    border: 1px solid #CCCCCC;
+    color: #000000;
+    text-align: center;
+    padding: 4px;
+}
+
+div.informative, td.informative, p.informative, span.informative {
+    background-color: #CCCCFF;
+    border: 1px solid blue;
+    color: #000000;
+    text-align: center;
+    padding: 4px;
+}
+
+div.important, td.important, p.important, span.important {
+    background-color: #EF9398;
+    border: 1px solid #DC5757;
+    color: #000000;
+    text-align: center;
+    padding: 4px;
+}
+
+
+/* ======= tips =======*/
+.tip {
+    color: #fff;
+    width: 139px;
+    z-index: 13000;
+}
+ 
+.tip-title {
+    font-size: 11px;
+    margin: 0;
+    color: #0274B0;
+    padding: 8px 8px 4px;
+    background: #ffee99;
+}
+
+
+
+.tip-text {
+    display: none;
+    font-size: 11px;
+    padding: 4px 8px 8px;
+    color: #0274B0;
+    background: #ffee99;
+}
+
+div.propositions {
+    height: 30em; 
+    overflow-y: auto; 
+    overflow-x: none; 
+    padding: 0px; 
+    border: 1px solid #b0b0b0;
+    background: #fafafa;
+}
+.proposition {
+    margin: 0px;
+    padding: 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.nodc_help {
+    margin: 0;
+    padding: 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #0274B0;
+    background: #ffee99;
+    width: 100%;
+}
+div.nodc_suggestion {
+    background:     #fafafa;
+    display:        none;
+    margin-right:   8px;
+    padding-left: 1px;
+    padding-right: 1px;
+    float:          left;
+}
+
+.propositionOdd {
+    background: #ffffff;
+}
+.propositionEven {
+    background: #eeeeee;
+}
+.propositionLastOdd {
+    border-bottom: 1px solid #eeeeee;
+}
+.propositionLastEven {
+    border-bottom: 1px solid #ffffff;
+}
+
+
+
