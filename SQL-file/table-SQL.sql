@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`id`, `nom`, `prenom`, `email`, `tel_fixe`, `tel_mobile`, `password`, `nikhandle`, `etat`, `ville`, `cp`, `adresse`, `pays`, `credit`, `langue`, `ip_register`, `status`, `admin`) VALUES
-(1, 'Admin', 'admin', 'support@your-domaine.fr, '', '', 'votre-mot-de-passe-crypter-md5', 'admin', '1', '', '', '', 'France', '', '', '', '', '1');
+(1, 'Admin', 'admin', 'support@your-domaine.fr', '', '', 'votre-mot-de-passe-crypter-md5', 'admin', '1', '', '', '', 'France', '', '', '', '', '1');
 
 -- --------------------------------------------------------
 
