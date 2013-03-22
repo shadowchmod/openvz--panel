@@ -753,7 +753,7 @@ CREATE TABLE IF NOT EXISTS `prix_service` (
 --
 
 INSERT INTO `prix_service` (`id`, `service_type`, `service_id`, `jour_time`, `jour_nbr`, `jour_texte`, `prix`) VALUES
-(17, 'VPS', '1', '2678400', '31', '1 Moi', '4.00'),
+(17, 'VPS', '1', '2678400', '31', '1 Moi', '4.00');
 
 
 -- --------------------------------------------------------
