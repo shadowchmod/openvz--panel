@@ -78,7 +78,8 @@
 							<td><span style="margin-left:100px;">Action</td>
 							<td><input type="submit" ></td>
 							</tr>
-							';
+						 </table>
+						</form>	';
 
 	echo '</fieldset>';
 

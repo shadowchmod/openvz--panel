@@ -597,8 +597,8 @@ CREATE TABLE IF NOT EXISTS `os` (
 --
 
 INSERT INTO `os` (`id`, `nom_os`, `fichier`, `etat`, `type`) VALUES
-(6, 'Debian 5 x86 (32bits)', 'debian-5.0-x86.tar.gz', 1, 'linux'),
-(9, 'Fedora 12 (32bits)', 'fedora-12-x86.tar.gz', 1, 'linux');
+('', 'Debian 5 x86 (32bits)', 'debian-5.0-x86.tar.gz', '1', 'linux'),
+('', 'Fedora 12 (32bits)', 'fedora-12-x86.tar.gz', '1', 'linux');
 
 -- --------------------------------------------------------
 
@@ -753,7 +753,7 @@ CREATE TABLE IF NOT EXISTS `prix_service` (
 --
 
 INSERT INTO `prix_service` (`id`, `service_type`, `service_id`, `jour_time`, `jour_nbr`, `jour_texte`, `prix`) VALUES
-(17, 'VPS', '1', '2678400', '31', '1 Moi', '4.00');
+('', 'VPS', '1', '2678400', '31', '1 Moi', '4.00');
 
 
 -- --------------------------------------------------------
@@ -827,7 +827,7 @@ CREATE TABLE IF NOT EXISTS `serveur` (
 --
 
 INSERT INTO `serveur` (`id`, `login`, `password`, `ip`, `host`, `nom`, `etat`, `port`) VALUES
-(2, 'root', 'code-serveur', '80XXXipserveur', 'ks3058.kimsufi.com', 'ks3058', '1', 22);
+('', 'root', 'code-serveur', '80XXXipserveur', 'ks3058.kimsufi.com', 'ks3058', '1', '22');
 
 -- --------------------------------------------------------
 

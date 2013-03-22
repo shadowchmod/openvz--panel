@@ -53,7 +53,9 @@
 			<td>'.$sql_warning['message'].'</td>
 		</tr>';
 		}
-		echo '</fildset>';
+echo '  </table> 
+
+	</fieldset>';
 		
 	
 
