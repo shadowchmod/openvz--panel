@@ -555,8 +555,8 @@ CREATE TABLE IF NOT EXISTS `option_panel` (
 --
 
 INSERT INTO `option_panel` (`id`, `value`, `valeur`) VALUES
-(1, 'MODE_MAINTENANCE', '0'),
-(2, 'TEXTE_MAITENANCE', 'Site web en maintenance temporaire.');
+('', 'MODE_MAINTENANCE', '0'),
+('', 'TEXTE_MAITENANCE', 'Site web en maintenance temporaire.');
 
 -- --------------------------------------------------------
 
@@ -656,10 +656,10 @@ CREATE TABLE IF NOT EXISTS `plan` (
 --
 
 INSERT INTO `plan` (`id`, `id_whmcs`, `nom`, `ram`, `disque`, `nbr_cpu`, `dd_info`, `ram_info`, `proco_info`, `connexion_info`, `bp_info`, `frai_install`, `install_price`) VALUES
-(1, 47, 'VPS 0', '128', '20', '1', '1 x 20Go', '128 Mo ', '1 * 2,40Ghz', '100Mbps', 'Illimité', '0', '3,00'),
-(2, 12, 'VPS 1', '256', '50', '2', '50Go', '256 Mo', '2 x 2,40Ghz', '100Mbps', 'Illimité', '0', ''),
-(3, 13, 'VPS 2', '512', '80', '3', '80Go', '512 Mo', '3 x 2,40Ghz', '100Mbps', 'Illimité', '0', ''),
-(7, 0, 'VPS 3', '1024', '100', '4', '100', '1024 Mo', '4 x 2,40Ghz', '100Mbps', 'Illimité', '0', '');
+('', 47, 'VPS 0', '128', '20', '1', '1 x 20Go', '128 Mo ', '1 * 2,40Ghz', '100Mbps', 'Illimité', '0', '3,00'),
+('', 12, 'VPS 1', '256', '50', '2', '50Go', '256 Mo', '2 x 2,40Ghz', '100Mbps', 'Illimité', '0', ''),
+('', 13, 'VPS 2', '512', '80', '3', '80Go', '512 Mo', '3 x 2,40Ghz', '100Mbps', 'Illimité', '0', ''),
+('', 0, 'VPS 3', '1024', '100', '4', '100', '1024 Mo', '4 x 2,40Ghz', '100Mbps', 'Illimité', '0', '');
 
 -- --------------------------------------------------------
 
@@ -936,13 +936,13 @@ CREATE TABLE IF NOT EXISTS `ticket_secteur` (
 --
 
 INSERT INTO `ticket_secteur` (`id`, `name`) VALUES
-(1, 'Serveur dédié (Commercial)'),
-(2, 'Serveur dédié (Technique)'),
-(3, 'Serveur Virtuel (VPS) (Commercial)'),
-(4, 'Serveur Virtuel (VPS) (Technique)'),
-(5, 'Hebergement web (Commercial)'),
-(6, 'Hebergement web (Technique)'),
-(7, 'Autre servcices');
+('', 'Serveur dédié (Commercial)'),
+('', 'Serveur dédié (Technique)'),
+('', 'Serveur Virtuel (VPS) (Commercial)'),
+('', 'Serveur Virtuel (VPS) (Technique)'),
+('', 'Hebergement web (Commercial)'),
+('', 'Hebergement web (Technique)'),
+('', 'Autre servcices');
 
 -- --------------------------------------------------------
 
