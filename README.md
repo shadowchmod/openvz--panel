@@ -26,3 +26,16 @@ pour toutes personnes souhaitant amméliorer ce panel
 je vous prie de me contacter.
 
 Merci.
+
+
+
+
+Utilisation
+
+ajouter votre mot de passe crypter md5 dans la table avant de l'ajouter dans votre base de donnée
+SQL-file/table-SQL.sql
+et modifier la ligne 113 et 114 : votre-mot-de-passe-crypter-md5
+le login sera admin
+
+dans  include/constante.php
+aajoute de la ligne 7 a 10
