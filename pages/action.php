@@ -172,7 +172,12 @@
 		else
 			echo "false";
 		break;
-	//Cr�ation d'un VPS
+	//ajout d'un serveur root proxmox
+	case "add_serveur_proxmox":
+// requette mysql	
+// id - login - password - ip - host - nom - etat - port
+		break;
+	//Cr�ation d'un VPS":
 	case "create_vps":
 			if (isset($_POST))
 			{
