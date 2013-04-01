@@ -30,10 +30,10 @@
 					'".$time."'
 					)") or die(mysql_error());
 	
-	echo '<center><strong>Payement ajouter avec succes !</center></strong>';
+	echo '<center><strong>Paiement ajout&eacute; avec succes ! !</center></strong>';
 	
 	}
-	echo '<fieldset><legend><strong>Assistant de création de facture - Etape 2 (Renouvellement VPS)</strong></legend>';
+	echo '<fieldset><legend><strong>Assistant de cr&eacute;ation de facture - Etape 2 (Renouvellement VPS)</strong></legend>';
 
 	echo '<form id="form1"  name="form1" method="POST" action="index.php?page=admin/add_payement">
 						  <table>
@@ -59,19 +59,19 @@
 							</tr>
 							
 							<tr>
-							<td><span style="margin-left:100px;">Type payement</td>
+							<td><span style="margin-left:100px;">Type paiement</td>
 							<td><input type="text" name="type_payement"></td>
 							</tr>
 				
 							<tr>
 							<td><span style="margin-left:100px;">Etat</td>
 							<td><select name="etat">
-							<option value="1">Payement axcepter</option>
-							<option value="2">Payement en attente de vérification</option>
-							<option value="3">Payement froduleux</option>
-							<option value="4">Payement annulé</option>
-							<option value="5">Payement échoué</option>
-							<option value="6">Payement renboursé (Penssez a mettre "-" devant le montant)</option>
+							<option value="1">Paiement acceptÃ&eacute;</option>
+							<option value="2">Paiement en attente de vÃ&eacute;rification</option>
+							<option value="3">Paiement frauduleux</option>
+							<option value="4">Paiement annul&eacute;©é</option>
+							<option value="5">Paiement Ã©chu&eacute;é</option>
+							<option value="6">Paiement remboursÃ© (Pensez a mettre "-" devant le montant)</option>
 							
 							</select></td>
 							</tr>

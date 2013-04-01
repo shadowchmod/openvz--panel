@@ -31,7 +31,8 @@
                         </label>
                     </p>
 					<p><a href="index.php?page=forget_pass">Mot de passe oubli&eacute;</a></p>
-				
+					<p><a href="index.php?page=inscription">Je m inscrit<a></p>
+
 <input type="hidden" name="refer" value="<?echo $var_encoer;?>" />
 </form>
 			</center>
