@@ -5,7 +5,8 @@
 	{
 		include('pages/menu.php');
 	
-    
+		echo '<a href="index.php">< Retour aux vps</a><br/>';
+ 
 		echo '<fieldset><legend><strong>Messagerie</strong></legend><center>';
 		
 		if(isset($_GET['objet'])){
