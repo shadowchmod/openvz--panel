@@ -5,7 +5,7 @@
 		($client=Client::GetClient($_GET["client"]))!=false)
 	{
 		echo '
-			<a href="index.php">< Retour au panneau</a><br/><br/>';
+			<a href="index.php">< Retour au panneaux</a><br/><br/>';
 		echo "
 			<fieldset><legend><strong>Profil client</strong></legend>";
 			$clientid=$client["id"];

@@ -3,7 +3,7 @@
 	
 	if (Session::Ouverte() && Session::$Admin)
 	{
-		echo '<a href="index.php">< Retour au panneau</a><br/>';
+		echo '<a href="index.php">< Retour au panneaux</a><br/>';
 ?>
 			<br/>
 			<script language="JavaScript" type="text/javascript">

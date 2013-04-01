@@ -1,6 +1,6 @@
 <?
 //    defined("INC") or die("403 restricted access");
- echo '<a href="index.php"> Retour aux panneau</a><br/><br/>';
+ echo '<a href="index.php"> Retour aux panneaux</a><br/><br/>';
 	if ( isset ( $_POST['invoice'] ) )
 	{
 	$invoice = $_POST['invoice'];

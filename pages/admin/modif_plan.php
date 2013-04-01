@@ -2,7 +2,7 @@
     defined("INC") or die("403 restricted access");
 	
 		echo '
-			<a href="index.php">< Retour au panneau</a><br/><br/>';
+			<a href="index.php">< Retour au panneaux</a><br/><br/>';
 		echo "<fieldset><legend><strong>Modification d'un plan</strong></legend>";
 
 if(isset($_GET['id'])){
