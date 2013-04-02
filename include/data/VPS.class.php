@@ -1,4 +1,6 @@
 <?php
+// ajouter le nom de votre base de donnÃ©e  mysql
+$nom_de_la_base_de_donnee = 'hd_panel';
 
 class VPS
 {
@@ -161,7 +163,7 @@ class VPS
 		$serverid=ProtectSQL($serverid);
 		$ipid=ProtectSQL($ipid);
 		$vmid=ProtectSQL($vmid);
-		$requete = "INSERT INTO `panel`.`vps` (`id`, `new`, `etat`, `status`, `id_client`, `vmid`, `id_ip`, `id_os`, `id_plan`, `id_server`, `TX_total`, `RX_total`, `TX_temp`, `RX_temp`) 
+		$requete = "INSERT INTO `$nom_de_la_base_de_donnee`.`vps` (`id`, `new`, `etat`, `status`, `id_client`, `vmid`, `id_ip`, `id_os`, `id_plan`, `id_server`, `TX_total`, `RX_total`, `TX_temp`, `RX_temp`) 
 				VALUES (NULL, '1', '1', '0', '', '$vmid', '$ipid', '', '$planid', '$serverid', '0', '0', '0', '0')";
 				
 		if (DB::Sql($requete))
@@ -172,10 +174,37 @@ class VPS
 			return false;
 		}
 	}
-	
+
+//--------------------------------requette myslq pour ajouter un serveur proxmox
+//requette mysql
+// id - login - password - ip - host - nom - etat - port        
+	public static function Serveur_Root($login,$password,$ip,$host,$nom,$etat,$port)
+        {
+		//protectionSQL
+                $login=ProtectSQL($login);
+                $password=ProtectSQL($password);
+                $ip=ProtectSQL($ip);
+                $host=ProtectSQL($host);
+		$nom=ProtectSQL($nomÃ);
+		$etat=ProtectSQL($etatÃ);
+		$port=ProtectSQL($port);
+
+                $requete = "INSERT INTO `$nom_de_la_base_de_donnee`.`serveur` (`id`, `login`, `password`, `ip`, `host`, `nom`, `etat`, `port`)
+                                VALUES (NULL, '$login', '$password', $ip', $host'', 'nom', '$etat', '$port')";
+                                
+                if (DB::Sql($requete))
+                {
+                        $id=DB::GetInsertId();
+                        return $id; // retourne l'id serveur vps
+                }else{
+                        return false;
+                }
+        }
+//-------------------------------------------
+
 	public static function LinkVPSToClient($vpsid,$clientid)
 	{
-		$requete = "UPDATE `panel`.`vps` SET `id_client` = '$clientid' WHERE `vps`.`id` ='$vpsid' LIMIT 1";
+		$requete = "UPDATE `$nom_de_la_base_de_donnee`.`vps` SET `id_client` = '$clientid' WHERE `vps`.`id` ='$vpsid' LIMIT 1";
 		if (DB::Sql($requete))
 		{
 			return true;
@@ -186,7 +215,7 @@ class VPS
 	
 	public static function BlockVPSToClient($vpsid)
 	{
-		$requete = "UPDATE `panel`.`vps` SET `etat` = 0 WHERE `vps`.`id` ='$vpsid' LIMIT 1";
+		$requete = "UPDATE `$nom_de_la_base_de_donnee`.`vps` SET `etat` = 0 WHERE `vps`.`id` ='$vpsid' LIMIT 1";
 		if (DB::Sql($requete))
 		{
 			return true;
@@ -197,7 +226,7 @@ class VPS
 	
 	public static function DeblockVPSToClient($vpsid)
 	{
-		$requete = "UPDATE `panel`.`vps` SET `etat` = 1 WHERE `vps`.`id` ='$vpsid' LIMIT 1";
+		$requete = "UPDATE `$nom_de_la_base_de_donnee`.`vps` SET `etat` = 1 WHERE `vps`.`id` ='$vpsid' LIMIT 1";
 		if (DB::Sql($requete))
 		{
 			return true;

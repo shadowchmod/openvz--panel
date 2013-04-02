@@ -105,7 +105,7 @@
 ##########################################################################
  <fieldset><legend><strong>Ajout d'un serveur PROXMOX</strong></legend>
 
-<form id="form1" name="form1" method="post" action="index.php?page=action&amp;action=addÃÃ_serveur_proxmox">
+<form id="form2" name="form2" method="post" action="index.php?page=action=action=add_serveur_proxmox">
 <table width="100%" border="0">
  
 <TR>
@@ -131,11 +131,15 @@
 </TR>
 <TR>
                 <TD align="right">L\'Etat du serveur:</TD>
-		<TD align="right"><input type="text" name="etat" /></TD>
+		<TD align="right">
+	<select>
+  			<option value="0">0 inactif</option>
+  			<option value="1">1 actif</option>
+	</select>	</TD>
 </TR>
 <TR>
                 <TD align="right">Le port du serveur:</TD>
-		<TD align="right"><input type="text" name="port" /></TD>
+		<TD align="right"><input type="text" name="port" placeholder="22" /></TD>
 </TR>
 <TR>
 	<TD align="right"><INPUT type="submit" value="ajouter mon serveur" name="submit" /></TD>

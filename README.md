@@ -37,5 +37,10 @@ SQL-file/table-SQL.sql
 et modifier la ligne 113 et 114 : votre-mot-de-passe-crypter-md5
 le login sera admin
 
+
 dans  include/constante.php
-aajoute de la ligne 7 a 10
+ajoute de la ligne 7 a 10
+
+
+ajouter le nom de votre base de donnée dans le fichier suivant : include/data/VPS.class.php
+$nom_de_la_base_de_donnee = '';

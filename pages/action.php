@@ -174,8 +174,27 @@
 		break;
 	//ajout d'un serveur root proxmox
 	case "add_serveur_proxmox":
-// requette mysql	
-// id - login - password - ip - host - nom - etat - port
+	// voir page suivante "include/data/VPS.class.php"
+			if (isset($_POST))
+			{
+        $root_serveur=VPS::Serveur_Root(login=$_POST["login"],password=$_POST["password"],ip=$_POST["ip"],host=$_POST["host"],nom=$_POST["nom"],etat=$_POST["etat"],port=$_POST["port"]);
+        if($root_serveur!=false){
+          $root_serveur;
+          if ($root_serveur0!=false)
+          {
+            passer_message_info("Serveur Proxmox ajouter",OK);
+            header("Location: index.php?page=admin/detail_serveur_root&serveur=$vps"); // return une valeur	
+          }else{
+            passer_message_info("Erreur lors de l ajout du serveur proxmox",ALERTE);
+            header("Location: index.php?page=admin/detail_serveur_root");
+          }
+        }else{
+            passer_message_info("Erreur lors de l ajout du serveur proxmox",ALERTE);
+            header("Location: index.php?page=admin/detail_serveur_root");
+        }
+			}else{
+			header("Location: index.php?page=admin/detail_serveur_root");
+			}
 		break;
 	//Cr�ation d'un VPS":
 	case "create_vps":
