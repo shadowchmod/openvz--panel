@@ -185,8 +185,8 @@ class VPS
                 $password=ProtectSQL($password);
                 $ip=ProtectSQL($ip);
                 $host=ProtectSQL($host);
-		$nom=ProtectSQL($nom√);
-		$etat=ProtectSQL($etat√);
+		$nom=ProtectSQL($nom);
+		$etat=ProtectSQL($etat);
 		$port=ProtectSQL($port);
 
                 $requete = "INSERT INTO `$nom_de_la_base_de_donnee`.`serveur` (`id`, `login`, `password`, `ip`, `host`, `nom`, `etat`, `port`)
