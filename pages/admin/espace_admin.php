@@ -161,7 +161,7 @@ Client : <?=$c?>
      <tr>
      <td width="33%" align="center" valign="middle">
 	<a href="index.php?page=admin/detail_serveur_root">
-		<img src="images/" width="56" height="56" border="0" /><br />
+		<img src="images/serveur-icone.png" width="56" height="56" border="0" /><br />
 	Gestion des serveur</a>
 </td>
 
