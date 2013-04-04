@@ -178,7 +178,7 @@ class VPS
 //--------------------------------requette myslq pour ajouter un serveur proxmox
 //requette mysql
 // id - login - password - ip - host - nom - etat - port        
-	public static function Serveur_Root($login,$password,$ip,$host,$nom,$etat,$port)
+	public static function add_serveur_proxmox($login,$password,$ip,$host,$nom,$etat,$port)
         {
 		//protectionSQL
                 $login=ProtectSQL($login);
