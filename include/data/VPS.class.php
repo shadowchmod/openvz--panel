@@ -190,7 +190,7 @@ class VPS
 		$port=ProtectSQL($port);
 
                 $requete = "INSERT INTO `$nom_de_la_base_de_donnee`.`serveur` (`id`, `login`, `password`, `ip`, `host`, `nom`, `etat`, `port`)
-                                VALUES (NULL, '$login', '$password', $ip', $host'', 'nom', '$etat', '$port')";
+                                VALUES (NULL, '$login', '$password', '$ip', '$host', '$nom', '$etat', '$port')";
                                 
                 if (DB::Sql($requete))
                 {
