@@ -175,7 +175,6 @@ class VPS
 		}
 	}
 
-//--------------------------------requette myslq pour ajouter un serveur proxmox
 //requette mysql
 // id - login - password - ip - host - nom - etat - port        
 	public static function Serveur_Root($login,$password,$ip,$host,$nom,$etat,$port)
@@ -189,17 +188,17 @@ class VPS
 		$etat=ProtectSQL($etat);
 		$port=ProtectSQL($port);
 
-                $requete = "INSERT INTO `$nom_de_la_base_de_donnee`.`serveur` (`id`, `login`, `password`, `ip`, `host`, `nom`, `etat`, `port`)
+                $requete = "INSERT INTO $nom_de_la_base_de_donnee.`serveur` (`id`, `login`, `password`, `ip`, `host`, `nom`, `etat`, `port`)
                                 VALUES (NULL, '$login', '$password', '$ip', '$host', '$nom', '$etat', '$port')";
-                                
-                if (DB::Sql($requete))
-                {
-                        $id=DB::GetInsertId();
-                        return $id; // retourne l'id serveur vps
-                }else{
-                        return false;
-                }
-        }
+
+                	if (DB::Sql($requete))
+			{
+			return true;
+			}else{
+			return false;
+			}
+}
+
 //-------------------------------------------
 
 	public static function LinkVPSToClient($vpsid,$clientid)
