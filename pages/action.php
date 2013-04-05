@@ -206,7 +206,7 @@ case "create_vps":
 if (isset($_POST))
 {
         $ipOKvmid=Ip::BlockIP($_POST["ip"],$_POST["server"]);
-        if($ipOKvmid!=true){
+        if($ipOKvmid!=false){
           $vpsid=VPS::CreateVPS($_POST["plan"],$_POST["server"],$_POST["ip"],$ipOKvmid);
           if ($vpsid!=false)
           {
