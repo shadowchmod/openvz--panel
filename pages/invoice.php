@@ -333,9 +333,9 @@ exit;
 </strong></td>
 
 <td WIDTH=350>
-Association SD-web<br />
-3 rue du mollard<br />
-38080 - L'isle d'abeau
+Association Entreprise<br />
+0 rue de votre entreprise<br />
+CODE POSTAL - VILLE 
 </td>
 </tr>
 
