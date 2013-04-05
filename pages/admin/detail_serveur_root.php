@@ -1,3 +1,6 @@
+	defined("INC") or die("403 restricted access");
+
+	echo '<a href="index.php">< Retour au panneau </a><br/><br/>';
 
  <fieldset><legend><strong>Ajout d'un serveur PROXMOX</strong></legend>
 
