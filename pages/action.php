@@ -206,7 +206,7 @@ case "create_vps":
 if (isset($_POST))
 {
         $ipOKvmid=Ip::BlockIP($_POST["ip"],$_POST["server"]);
-        if($ipOKvmid!=false){
+        if($ipOKvmid!=true){
           $vpsid=VPS::CreateVPS($_POST["plan"],$_POST["server"],$_POST["ip"],$ipOKvmid);
           if ($vpsid!=false)
           {
@@ -217,7 +217,7 @@ if (isset($_POST))
             header("Location: index.php?page=admin/ajouter_vps");
           }
         }else{
-            passer_message_info("Erreur lors de la cr�ation du VPS",ALERTE);
+            passer_message_info("Erreur lors de la cr�atiodu VPS 1",ALERTE);
             header("Location: index.php?page=admin/ajouter_vps");
         }
 }else{
@@ -325,7 +325,7 @@ if (($_POST["passroot"]==$_POST["passrootconf"] && $_POST["passroot"]!="") || is
       //mail("aure.loiseaux@laposte.net","action",$_POST["os_choisit"].' '.$_POST["passroot"]);
 VPS::Reinstall($_GET["vps"],$_POST["os_choisit"],$_POST["passroot"]);
 if (isset($_GET["noredirect"])==false)
-header("Location: http://178.32.40.40/panel/index.php?page=vps_detail&vps=".$_GET["vps"]);
+header("Location: index.php?page=vps_detail&vps=".$_GET["vps"]);
 }else{
 stocker_variables_formulaire($_POST);
 passer_message_info("Les mots de passe ne corresponde pas ou sont nul",ALERTE);
