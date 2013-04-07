@@ -77,7 +77,7 @@ function status_vps($IDVPS, $connection){
 	fclose($stream);
 
 	//R�cup�rer que la consigne et la r�ponse
-	$resultat=explode('root@ks305836:~# ', $rep);
+	$resultat=explode('root@proxmox:~# ', $rep);
 
 	//V�rifie que la commande de restart est en cour
 	$run=stripos($resultat[1],"running");
