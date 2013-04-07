@@ -1,8 +1,9 @@
+<?php
 	defined("INC") or die("403 restricted access");
+?>
+	<a href="index.php">< Retour au panneau </a><br/><br/>
 
-	echo '<a href="index.php">< Retour au panneau </a><br/><br/>';
-
- <fieldset><legend><strong>Ajout d'un serveur PROXMOX</strong></legend>
+<fieldset><legend><strong>Ajout d'un serveur PROXMOX</strong></legend>
 
 <form id="form2" name="form2" method="post" action="index.php?page=action&amp;action=add_serveur_proxmox">
 <table width="100%" border="0">
@@ -29,7 +30,7 @@
                 <TD align="right"><input type="text" name="nom" /></TD>
 </TR>
 <TR>
-                <TD align="right">L\'Etat du serveur:</TD>
+                <TD align="right">L Etat du serveur:</TD>
                 <TD align="right">
         <select>
                         <option value="0">0 inactif</option>
@@ -48,4 +49,3 @@
 </table>
 </form>
 </fieldset>
- 
