@@ -139,8 +139,8 @@ function reinstall_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swap,
 	// Pour old version : Commande � ex�cuter
 	//$command='/usr/bin/pvectl vzcreate '.$IDVPS.' --disk '.$disque.' --ostemplate '.$OS.'  --hostname '.$hostname.'  --nameserver 127.0.0.1 --nameserver 213.186.33.99 --searchdomain ovh.net --onboot no --ipset '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl restart '.$IDVPS.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
 	// pour proxmox 2.X
-	//$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver 213.186.33.99 -searchdomain ovh.net -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot;
-	$command='echo "$IDVPS $connection $OS $disque $hostname $ip $swap $memoire $cpu $passroot" > /root/txt.txt';
+	$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver 213.186.33.99 -searchdomain ovh.net -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot;
+//	$command='echo "$IDVPS $connection $OS $disque $hostname $ip $swap $memoire $cpu $passroot" > /root/txt.txt';
 	$mes='$IDVPS $OS $disque $hostname $ip $swap $memoire $cpu $passroot ';	
 	mail("ashemta01@gmail.com","fonction_vps reinstall", $mes);
 	
