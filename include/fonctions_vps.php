@@ -94,7 +94,7 @@ function status_vps($IDVPS, $connection){
 
 
 //------------------------------------------------------------------------------------------------------
-//-------------- Permet de stopper le serveur le serveur --------------------------------------------
+//-------------- Permet de stopper le serveur --------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
 function stop_destroy_vps($IDVPS, $connection){
@@ -136,15 +136,19 @@ NULL , '".$IDVPS."', 'IP', '".$message."', '', '".$time."', 'W_ERREUR_DELL_DETRO
 function reinstall_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swap, $memoire, $cpu, $passroot){
 	//On suprrime et r�installe le serveur--------------------------------------------------------------------------------
 	
-	//Commande � ex�cuter
+	// Pour old version : Commande � ex�cuter
 	//$command='/usr/bin/pvectl vzcreate '.$IDVPS.' --disk '.$disque.' --ostemplate '.$OS.'  --hostname '.$hostname.'  --nameserver 127.0.0.1 --nameserver 213.186.33.99 --searchdomain ovh.net --onboot no --ipset '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl restart '.$IDVPS.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
-	$command='/usr/bin/pvectl create -vmid '.$IDVPS.' --ostemplate /var/lib/vz/template/cache/ubuntu-12.04-standard_12.04-1_i386.tar.gz --disk '.$disque.' --hostname '.$hostname.' --nameserver 127.0.0.1 --nameserver 213.186.33.99 --searchdomain ovh.net --onboot no --ip_address '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl restart '.$IDVPS.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
-
+	// pour proxmox 2.X
+	//$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver 213.186.33.99 -searchdomain ovh.net -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot;
+	$command='echo "$IDVPS $connection $OS $disque $hostname $ip $swap $memoire $cpu $passroot" > /root/txt.txt';
+	$mes='$IDVPS $OS $disque $hostname $ip $swap $memoire $cpu $passroot ';	
+	mail("ashemta01@gmail.com","fonction_vps reinstall", $mes);
+	
 	//On arr�te le serveur
 	stop_destroy_vps($IDVPS, $connection);
 	
 	//On lance la commande d'install
-  $stream = ssh2_exec($connection, $command);
+  $stream = ssh2_exec($connection, $command );
   stream_set_blocking($stream, true);
 	
 	//R�cup�re le r�sultat
@@ -191,8 +195,8 @@ function install_new_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swa
 	
 	//Commande � ex�cuter
 	//$command = '/usr/bin/pvectl vzcreate '.$IDVPS.' --disk '.$disque.' --ostemplate '.$OS.'  --hostname '.$hostname.'  --nameserver 127.0.0.1 --nameserver 213.186.33.99 --searchdomain ovh.net --onboot no --ipset '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl restart '.$IDVPS.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
-	$command = '/usr/bin/pvectl create -vmid '.$IDVPS.' --ostemplate /var/lib/vz/template/cache/ubuntu-12.04-standard_12.04-1_i386.tar.gz --disk '.$disque.' --hostname '.$hostname.'  --nameserver 127.0.0.1 --nameserver 13.186.33.99 --searchdomain ovh.net --onboot no --ip_address '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
-	// --ostemplate '.$OS.'
+	$command = '/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.'  -nameserver 13.186.33.99 -searchdomain ovh.net -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu;
+	
   //On lance la commande
   $stream = ssh2_exec($connection, $command);
   stream_set_blocking($stream, true);

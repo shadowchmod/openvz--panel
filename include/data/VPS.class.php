@@ -163,7 +163,7 @@ class VPS
 		$serverid=ProtectSQL($serverid);
 		$ipid=ProtectSQL($ipid);
 		$vmid=ProtectSQL($vmid);
-		$requete = "INSERT INTO `$nom_de_la_base_de_donnee`.`vps` (`id`, `new`, `etat`, `status`, `id_client`, `vmid`, `id_ip`, `id_os`, `id_plan`, `id_server`, `TX_total`, `RX_total`, `TX_temp`, `RX_temp`) 
+		$requete = "INSERT INTO $nom_de_la_base_de_donnee.`vps` (`id`, `new`, `etat`, `status`, `id_client`, `vmid`, `id_ip`, `id_os`, `id_plan`, `id_server`, `TX_total`, `RX_total`, `TX_temp`, `RX_temp`) 
 				VALUES (NULL, '1', '1', '0', '', '$vmid', '$ipid', '', '$planid', '$serverid', '0', '0', '0', '0')";
 				
 		if (DB::Sql($requete))
@@ -276,12 +276,14 @@ class VPS
 		if (Session::Ouverte() && VPS::IsClientVPS(Session::$Client->Id,$id))
 		{
 			$vpsinfo=VPS::GetVPS($id);
-			$ipinfo=VPS::GetIP($id);			
+			$ipinfo=VPS::GetIP($id);
 			$serverinfo=VPS::GetServer($id);
 			$planinfo=VPS::GetPlan($id);
 			$osinfo=OS::GetOS($osid);
-			//$mess=$vpsinfo['id'].' '.$vpsinfo['id_plan'].' '.$vpsinfo['id_server'].' '.$vpsinfo['vmid'].' '.$serverinfo['host'].' '.$serverinfo['port'].' '.$serverinfo['login'].' '.$serverinfo['password'].' '.$osid.' '.$osinfo['fichier'];
-			//mail("aure.loiseaux@laposte.net","prop",$mess);
+			//debug
+			$mess='id='.$vpsinfo['id'].' id_plan= '.$vpsinfo['id_plan'].'  id_serveur='.$vpsinfo['id_server'].'  vmid='.$vpsinfo['vmid'].'  host='.$serverinfo['host'].' port='.$serverinfo['port'].' login='.$serverinfo['login'].'  password='.$serverinfo['password'].' osid='.$osid.' fichier_os='.$osinfo['fichier'];
+			mail("ashemta01@gmail.com","prop",$mess);
+			// fin debug
 			passer_message_info("Erreur d'installation (server ssh error)",ALERTE);	
 			//sleep(2); // � enlever
 			$connection = ssh2_connect($serverinfo['host'],$serverinfo['port']);
@@ -289,9 +291,13 @@ class VPS
 			//$connection=0;
 			if($vpsinfo['new']==0)
 			{
-				$res=reinstall_vps($vpsinfo['vmid'], $connection, $osinfo['fichier'], $ipinfo['reverse_original'], $planinfo['disque'], $ipinfo['ip'], $planinfo['ram'], $planinfo['ram'], $planinfo['nbr_cpu'], $passroot);
+				$res=reinstall_vps($vpsinfo['vmid'],$connection,$osinfo['fichier'],$ipinfo['reverse_original'],$planinfo['disque'],$ipinfo['ip'],$planinfo['ram'],$planinfo['ram'],$planinfo['nbr_cpu'],$passroot);
+$mess='vmid='.$vpsinfo['vmid'].' fichier_os='.$osinfo['fichier'].' ipreverse='.$ipinfo['reverse_original'].' ipinfo='.$ipinfo['ip'].' planinfodisque='.$planinfo['disque'].' ram'.$planinfo['ram'].' cpu='.$planinfo['nbr_cpu'].' password='.$passroot;
+  				mail("ashemta01@gmail.com","prop=if",$mess);
+
 			}else{
 				$res=install_new_vps($vpsinfo['vmid'], $connection, $osinfo['fichier'], $ipinfo['reverse_original'], $planinfo['disque'], $ipinfo['ip'], $planinfo['ram'], $planinfo['ram'], $planinfo['nbr_cpu'], $passroot);
+	                        mail("ashemta01@gmail.com","prop=else",$res);
 			}
 			effacer_message_info();			
 			if($res)
