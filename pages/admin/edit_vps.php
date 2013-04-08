@@ -143,7 +143,7 @@ echo '<meta http-equiv="Refresh" content="1;URL=index.php?page=admin/edit_vps&id
 	
 	
 	echo '
-			<br/><br/>';
+		<a href="index.php?page=admin/liste_vps">< Retour liste vps</a><br/><br/>';
 		echo "
 			<fieldset><legend><strong>Informations VPS</strong></legend>";
 			

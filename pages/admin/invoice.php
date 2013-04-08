@@ -3,8 +3,8 @@
 	
 	
 	$erreur = "";
-	echo '<a href="index.php">< Retour aux vps</a><br/><br/>';
-
+	echo '<a href="index.php?page=admin/facture">< Retour aux factures</a><br/>
+              <a href="index.php">< Retour aux panneaux</a><br/><br/>';
 	
  $invoice = $_GET['id'];
 
@@ -184,7 +184,7 @@ $facture_id_id =  $sql['id'];
 			$message_etat2 ="Annulé";
 			break;
 			case "6":
-			$message_etat2 ="Payement en cour de véirifcation";
+			$message_etat2 ="Payement en cour de vérification";
 			break;
 			}
 		$ligne_service .= '<form action="index.php?page=admin/invoice&id='.$invoice.'&action=edit&id_copr='.$facture_id_corp.'" method="POST">

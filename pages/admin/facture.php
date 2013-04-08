@@ -1,7 +1,7 @@
 <?
 	defined("INC") or die("403 restricted access");
 	
-	echo '<a href="index.php">< Retour aux vps</a><br/><br/>';
+	echo '<a href="index.php">< Retour aux panneaux</a><br/><br/>';
 	
 	$id_client =  @Session::$Client->Id;
 	

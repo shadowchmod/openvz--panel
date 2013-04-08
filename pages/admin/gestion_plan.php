@@ -2,7 +2,7 @@
     defined("INC") or die("403 restricted access");
 	
 		echo '
-			<a href="index.php">< Retour au panneau</a><br/><br/>';
+			<a href="index.php">< Retour aux panneaux</a><br/><br/>';
 		echo "<fieldset><legend><strong>Gestions des plans</strong></legend>";
 
 if(isset($_POST['supp'])){

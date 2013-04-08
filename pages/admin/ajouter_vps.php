@@ -1,5 +1,5 @@
 <?php
-		echo '<a href="index.php">< Retour au panneaux</a><br/>';
+		echo '<a href="index.php">< Retour aux panneaux</a><br/>';
 ?>
 			<br/>
 			<script language="JavaScript" type="text/javascript">

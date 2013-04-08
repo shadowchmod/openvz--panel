@@ -1,7 +1,7 @@
 <?php
 	defined("INC") or die("403 restricted access");
 ?>
-	<a href="index.php">< Retour au panneau </a><br/><br/>
+	<a href="index.php">< Retour aux panneaux</a><br/><br/>
 
 <fieldset><legend><strong>Ajout d'un serveur PROXMOX</strong></legend>
 

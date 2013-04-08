@@ -36,12 +36,12 @@ Contac Mail : sebjsp@gmail.com
 												
 												
 												
-	echo '<fieldset><legend><strong>Assistant de création de facture - Etape 3</strong></legend>';
+	echo '<fieldset><legend><strong>Assistant de cr&eacute;ation de facture - Etape 3</strong></legend>';
 
 	echo '<form id="form1"  name="form1" method="POST" action="index.php?page=create_invoice&id='.$id_client.'&id_service='.$id_service.'">
 						  <table>
 						<tr>
-							<td><span style="margin-left:100px;"><strong>Choix de la Durée : </strong></td>
+							<td><span style="margin-left:100px;"><strong>Choix de la Dur&eacute;e : </strong></td>
 							<td> <table width="100%" border="0">
 	<tr class="tabletitle">
 	  <td></td>
@@ -185,7 +185,7 @@ echo '<center><strong>La facture <a href="index.php?page=invoice&id='.$facture_d
 	{
 
 	$id_client = $id_client;
-	echo '<fieldset><legend><strong>Assistant de création de facture - Etape 2 (Renouvellement VPS)</strong></legend>';
+	echo '<fieldset><legend><strong>Assistant de cr&eacute;ation de facture - Etape 2 (Renouvellement VPS)</strong></legend>';
 
 	echo '<form id="form1"  name="form1" method="POST" action="index.php?page=create_invoice&id='.$id_client.'">
 						  <table>

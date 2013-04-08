@@ -66,12 +66,12 @@
 							<tr>
 							<td><span style="margin-left:100px;">Etat</td>
 							<td><select name="etat">
-							<option value="1">Paiement accept√&eacute;</option>
-							<option value="2">Paiement en attente de v√&eacute;rification</option>
+							<option value="1">Paiement accept&eacute;</option>
+							<option value="2">Paiement en attente de v&eacute;rification</option>
 							<option value="3">Paiement frauduleux</option>
-							<option value="4">Paiement annul&eacute;©È</option>
-							<option value="5">Paiement √©chu&eacute;È</option>
-							<option value="6">Paiement rembours√© (Pensez a mettre "-" devant le montant)</option>
+							<option value="4">Paiement annulÈ</option>
+							<option value="5">Paiement &eacute;chouÈ</option>
+							<option value="6">Paiement rembours&eacute; (Pensez a mettre "-" devant le montant)</option>
 							
 							</select></td>
 							</tr>

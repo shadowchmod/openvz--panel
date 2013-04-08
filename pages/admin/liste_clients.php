@@ -3,7 +3,7 @@
 	
 	
 		echo '
-			<a href="index.php">< Retour au panneau</a><br/><br/>';
+			<a href="index.php">< Retour aux panneaux</a><br/><br/>';
 		echo "
 			<fieldset><legend><strong>Liste des clients</strong></legend>";
 		

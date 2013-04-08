@@ -1,7 +1,7 @@
 <?
 
     defined("INC") or die("403 restricted access");
-    echo '<a href="index.php">< Retour aux vps</a><br/><br/>';
+    echo '<a href="index.php">< Retour aux panneaux</a><br/><br/>';
 
 		echo "<fieldset><legend><strong>Panneau d'administration</strong></legend>";
 		$req_warning = mysql_query("SELECT * FROM warning ORDER by time LIMIT 0,50");
