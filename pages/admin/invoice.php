@@ -198,7 +198,7 @@ $ligne_service .=  '<option '; if ( $facture_etat2 == "2") { $ligne_service .=  
 $ligne_service .=  '<option '; if ( $facture_etat2 == "3") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="3">Facture traiter</option>';
 $ligne_service .=  '<option '; if ( $facture_etat2 == "4") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="4">Erreur l\'ors du traitement</option>';
 $ligne_service .=  '<option '; if ( $facture_etat2 == "5") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="5">Annulé</option>';
-$ligne_service .=  '<option '; if ( $facture_etat2 == "6") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="6">Payement en cour de véirifcation</option>';
+$ligne_service .=  '<option '; if ( $facture_etat2 == "6") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="6">Payement en cour de vérifcation</option>';
 $ligne_service .=  '
 </select></td>
 <td><input type="text" name="cat_service" size="5" value="'.$facture_cat_service.'"></td>
