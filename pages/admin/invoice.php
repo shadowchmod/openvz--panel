@@ -25,7 +25,7 @@ if ( isset ( $_GET['action'] ) )
 
 
 }
-$reponse = mysql_query("SELECT * FROM invoice WHERE facture='$invoice'"); // Requête SQL
+$reponse = mysql_query("SELECT * FROM invoice WHERE facture='$invoice'"); // RequÃªte SQL
 // on initisalise quelques variable 
 $suplemet_payer = "0,00";
  $prix_tt = "00,00";
@@ -35,7 +35,7 @@ while ($sql = mysql_fetch_array($reponse) )
 $id_client_facture = $sql['id_client'];
 $facture_id_id =  $sql['id'];
 //On recupere les info client
-			$reponse = mysql_query("SELECT * FROM client WHERE id='$id_client_facture'"); // Requête SQL
+			$reponse = mysql_query("SELECT * FROM client WHERE id='$id_client_facture'"); // RequÃªte SQL
 			while ($sql_client = mysql_fetch_array($reponse) )
 			{
 			$client_id = $sql_client['id'];
@@ -63,48 +63,48 @@ $facture_id_id =  $sql['id'];
 			$facture_id_number = $sql['facture'];
 			
 
-			//On vérifie l'etat de la facture
+			//On vÃ©rifie l'etat de la facture
 			
 				/* Liste des etats possible !
 				1 --> Facture non payer
-				2 --> Facture payer et traité
-				3 --> Facture payer et non-traité
-				4 --> Facture erroné 
+				2 --> Facture payer et traitÃ©
+				3 --> Facture payer et non-traitÃ©
+				4 --> Facture erronÃ© 
 				5 --> Facture payer partielement
-				6 --> Facture annulé par le Client
-				7 --> Facture annulé par un admin
+				6 --> Facture annulÃ© par le Client
+				7 --> Facture annulÃ© par un admin
 				8 --> Facture froduleuse
-				9 --> Payement douteux/Attente de vérifcation de payement
+				9 --> Payement douteux/Attente de vÃ©rifcation de payement
 				*/
 			
 				if ( $facture_etat == 4 )
 				{
-				$error_msg .= "<strong>Erreur : </strong>Une erreur a etait détecté dans cette facture, merci de contacter le support";
+				$error_msg .= "<strong>Erreur : </strong>Une erreur a etait dÃ©tectÃ© dans cette facture, merci de contacter le support";
 				$erreur += 1;
 				}
 				elseif ( $facture_etat == 6 )
 				{
-				$error_msg .= "<strong>Erreur : </strong> Vous avez annulé cette facture, pour la réactiver merci de nous contactez<br />";
+				$error_msg .= "<strong>Erreur : </strong> Vous avez annulÃ© cette facture, pour la rÃ©activer merci de nous contactez<br />";
 				$erreur += 1;
 				}
 				elseif ( $facture_etat == 7 )
 				{
-				$error_msg .= "<strong>Erreur : </strong>Cette facture etait annulé par un Administrateur, pour la réactiver merci de nous contactez<br />";
+				$error_msg .= "<strong>Erreur : </strong>Cette facture etait annulÃ© par un Administrateur, pour la rÃ©activer merci de nous contactez<br />";
 				$erreur += 1;
 				}
 				elseif ( $facture_etat == 8 )
 				{
-				$error_msg .= "<strong>Erreur : </strong>Cette facture a etait classer comme froduleuse, pour la réactiver merci de nous contactez<br />";
+				$error_msg .= "<strong>Erreur : </strong>Cette facture a etait classer comme froduleuse, pour la rÃ©activer merci de nous contactez<br />";
 				$erreur += 1;
 				}
 				elseif ( $facture_etat == 9 )
 				{
-				$error_msg .= "<strong>Erreur : </strong>Cette facture a etait payer mais le payement est toujour en attente de véirification<br />";
+				$error_msg .= "<strong>Erreur : </strong>Cette facture a etait payer mais le payement est toujour en attente de vÃ©rification<br />";
 				//$erreur += 1;
 				}
 				
 				
-		$reponse_corp = mysql_query("SELECT * FROM invoice_corp WHERE id_facture='$facture_id_id' "); // Requête SQL
+		$reponse_corp = mysql_query("SELECT * FROM invoice_corp WHERE id_facture='$facture_id_id' "); // RequÃªte SQL
 		while ($sql_corp = mysql_fetch_array($reponse_corp) )
 		{
 		$facture_id_corp = $sql_corp['id'];
@@ -126,11 +126,11 @@ $facture_id_id =  $sql['id'];
 					$indicate_type_facture = "Location";
 					}
 					
-				//On récupere le domaine && date d'expiration && prix
+				//On rÃ©cupere le domaine && date d'expiration && prix
 					if ( $facture_cat_service == "vps" )
 					{
 							//connexion a la table VPS pour recupere la fiche VPS
-							$reponse_domaine = mysql_query("SELECT * FROM vps WHERE id='$id_service' "); // Requête SQL
+							$reponse_domaine = mysql_query("SELECT * FROM vps WHERE id='$id_service' "); // RequÃªte SQL
 							while ($sql_domaine = mysql_fetch_array($reponse_domaine) )
 							{
 							// On recupere l'id de l'ip
@@ -142,14 +142,14 @@ $facture_id_id =  $sql['id'];
 							//on recupere l'id du plan 
 							$id_plan_prix = $sql_domaine['id_plan'];
 							
-								//On se connecte a la BDD des Ip pour recupéré le ndd 
-									$reponse_domaine_ip = mysql_query("SELECT * FROM ip WHERE id='$id_domaine_ip_vps'"); // Requête SQL
+								//On se connecte a la BDD des Ip pour recupÃ©rÃ© le ndd 
+									$reponse_domaine_ip = mysql_query("SELECT * FROM ip WHERE id='$id_domaine_ip_vps'"); // RequÃªte SQL
 									while ($sql_domaine_ip = mysql_fetch_array($reponse_domaine_ip) )
 									{
 									$domaine_finale_vps = $sql_domaine_ip['reverse_original'];
 									}
 							}
-					//On calcul la date après renouvellement
+					//On calcul la date aprÃ¨s renouvellement
 							$expiration_apres_payement = $expiration_avant_payement + $facture_jour;
 					}
 				
@@ -181,10 +181,10 @@ $facture_id_id =  $sql['id'];
 			$message_etat2 ="Erreur l'ors du traitement";
 			break;
 			case "5":
-			$message_etat2 ="Annulé";
+			$message_etat2 ="AnnulÃ©";
 			break;
 			case "6":
-			$message_etat2 ="Payement en cour de véirifcation";
+			$message_etat2 ="Payement en cour de vÃ©irifcation";
 			break;
 			}
 		$ligne_service .= '<form action="index.php?page=admin/invoice&id='.$invoice.'&action=edit&id_copr='.$facture_id_corp.'" method="POST">
@@ -197,20 +197,20 @@ $ligne_service .=  '<option '; if ( $facture_etat2 == "1") { $ligne_service .=  
 $ligne_service .=  '<option '; if ( $facture_etat2 == "2") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="2">En attente d\'execution</option>';
 $ligne_service .=  '<option '; if ( $facture_etat2 == "3") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="3">Facture traiter</option>';
 $ligne_service .=  '<option '; if ( $facture_etat2 == "4") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="4">Erreur l\'ors du traitement</option>';
-$ligne_service .=  '<option '; if ( $facture_etat2 == "5") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="5">Annulé</option>';
-$ligne_service .=  '<option '; if ( $facture_etat2 == "6") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="6">Payement en cour de véirifcation</option>';
+$ligne_service .=  '<option '; if ( $facture_etat2 == "5") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="5">AnnulÃ©</option>';
+$ligne_service .=  '<option '; if ( $facture_etat2 == "6") { $ligne_service .=  ' selected="selected" '; } $ligne_service .=  'value="6">Payement en cour de vÃ©irifcation</option>';
 $ligne_service .=  '
 </select></td>
 <td><input type="text" name="cat_service" size="5" value="'.$facture_cat_service.'"></td>
 <td><input type="text" name="facture_day" size="10" value="'.$facture_jour.'"></td>
 <td><input type="text" name="type_servie" size="2" value="'.$facture_type_service.'"></td>
 
-<td>'.$facture_prix.'€</td>
+<td>'.$facture_prix.'â‚¬</td>
 <td><input type="text" size="3" name="prix" value="'.$facture_prix.'"></td>
 <td><input type="submit" ></td>
 </tr>
 
-</form>'; 
+</form>';
 		}
 	
 				
@@ -218,16 +218,16 @@ $ligne_service .=  '
 			
 			/*
 			1 = Payement axcepter
-			2 = Payement en attente de vérification
+			2 = Payement en attente de vÃ©rification
 			3 = Payement froduleux
-			4 = Payement annulé
-			5 = Payement échoué
-			6 = Payement renboursé
+			4 = Payement annulÃ©
+			5 = Payement Ã©chouÃ©
+			6 = Payement renboursÃ©
 			*/
-			// on initialise la varble du montant payé
+			// on initialise la varble du montant payÃ©
 			$payement_payer_refund = "0,00";
 			$payement_payer_ok = "0,00";
-			$reponse_payement = mysql_query("SELECT * FROM payement WHERE id_facture='$facture_id_id' "); // Requête SQL
+			$reponse_payement = mysql_query("SELECT * FROM payement WHERE id_facture='$facture_id_id' "); // RequÃªte SQL
 			
 			while ($sql_payement = mysql_fetch_array($reponse_payement) )
 			{
@@ -250,19 +250,19 @@ $ligne_service .=  '
 		
 		
 			
-			//On récupere l'etat 2 --> $facture_etat2
+			//On rÃ©cupere l'etat 2 --> $facture_etat2
 			/* Etat possible 
 			1 -> En attente de payement
 			2 -> Payer en attente d'execution
-			3 -> Facture traité
+			3 -> Facture traitÃ©
 			4 -> Erreur l'ors du traitement
-			5 -> Annulé
+			5 -> AnnulÃ©
 			*/
 			
-			//On génére le titre de la facture 
+			//On gÃ©nÃ©re le titre de la facture 
 			
 			// on propose les payement disponible
-				// si la facture a deja etait payer en totalité on ne propose pas les moyen de payement			
+				// si la facture a deja etait payer en totalitÃ© on ne propose pas les moyen de payement			
 				 if ( $facture_payer != 1 )
 				 {
 				$bouton_allopass = '
@@ -273,7 +273,7 @@ $ligne_service .=  '
 				
 <form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\">
 <input type=\"hidden\" name=\"cmd\" value=\"_xclick\">
-<input type=\"hidden\" name=\"business\" value=\"maxoff@mixfeever.com\">
+<input type=\"hidden\" name=\"business\" value=\"ADRESSE@MAIL.com\">
 <input type=\"hidden\" name=\"lc\" value=\"FR\">
 <input type=\"hidden\" name=\"item_name\" value=\"Facture du service #$invoice \">
 <input type=\"hidden\" name=\"item_number\" value=\"".$facture_id_number."\">
@@ -283,7 +283,7 @@ $ligne_service .=  '
 <input type=\"hidden\" name=\"no_note\" value=\"1\">
 <input type=\"hidden\" name=\"no_shipping\" value=\"2\">
 <input type=\"hidden\" name=\"bn\" value=\"PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted\">
-<input type=\"image\" src=\"https://www.paypal.com/fr_FR/FR/i/btn/btn_paynowCC_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !\">
+<input type=\"image\" src=\"https://www.paypal.com/fr_FR/FR/i/btn/btn_paynowCC_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - la solution de paiement en ligne la plus simple et la plus sÃ©curisÃ©e !\">
 <img alt=\" border=\"0\" src=\"https://www.paypal.com/fr_FR/i/scr/pixel.gif\" width=\"1\" height=\"1\">
 </form>
 ";
@@ -305,7 +305,7 @@ $ligne_service .=  '
 	
 if ( $erreur != 0 )
 {
-echo "Il y a <strong>".$erreur."</strong> erreur detecté ! ";
+echo "Il y a <strong>".$erreur."</strong> erreur detectÃ© ! ";
 echo "<br>";
 echo $error_msg;
 echo "<br>";
@@ -357,10 +357,10 @@ SIREN : : 518 975 750<br />
 </table>
 
 <table border="1">
-<tr><td  WIDTH=700>Montant Total</td><td  WIDTH=100><?=$prix_tt;?>€</td></tr>
-<tr><td  WIDTH=700>Montant Payer</td><td  WIDTH=100> <?=$payement_payer_ok;?>€</td></tr>
-<tr><td  WIDTH=700>Reste a payer</td><td  WIDTH=100><?=$payement_payer_reste;?>€</td></tr>
-<tr><td  WIDTH=700>Payer en plus</td><td  WIDTH=100> <?=$suplemet_payer;?>€</td></tr>
+<tr><td  WIDTH=700>Montant Total</td><td  WIDTH=100><?=$prix_tt;?>â‚¬</td></tr>
+<tr><td  WIDTH=700>Montant Payer</td><td  WIDTH=100> <?=$payement_payer_ok;?>â‚¬</td></tr>
+<tr><td  WIDTH=700>Reste a payer</td><td  WIDTH=100><?=$payement_payer_reste;?>â‚¬</td></tr>
+<tr><td  WIDTH=700>Payer en plus</td><td  WIDTH=100> <?=$suplemet_payer;?>â‚¬</td></tr>
 
 </table><? if ( $payement_payer_reste != 0 )
 {
@@ -378,7 +378,7 @@ echo '<br /><br /><strong><center>Payement envoyer : </center></strong><br />';
 
 echo '<table width="100%" border="0">
 								<tr class="tabletitle">
-								<td>Numéro de transaction</td>
+								<td>NumÃ©ro de transaction</td>
 								<td>Date</td>
 								<td>Type</td>
 								<td>Ip</td>
@@ -389,7 +389,7 @@ echo '<table width="100%" border="0">
 								</tr>';
 			$i=0;
 			$p=0;
-	$reponse_payement = mysql_query("SELECT * FROM payement WHERE id_facture='$facture_id_id' "); // Requête SQL
+	$reponse_payement = mysql_query("SELECT * FROM payement WHERE id_facture='$facture_id_id' "); // RequÃªte SQL
 	while ($sql_payement = mysql_fetch_array($reponse_payement) )
 						{
 						$p+=1;
@@ -412,7 +412,7 @@ echo '<table width="100%" border="0">
 								if ( $sql_payement['etat'] == 1 )
 								$sql_payement['etat'] = "Payement valider";
 								echo '<td><center>'.$sql_payement['etat'].'</center></td>
-								<td><center>'.$sql_payement['montant'].'€</center></td>
+								<td><center>'.$sql_payement['montant'].'â‚¬</center></td>
 								</tr>';
 								
 									
@@ -463,8 +463,8 @@ mysql_query("	INSERT INTO `panel`.`notes_facture`
 	$i=0;
 echo '<table width="100%" border="0">
 								<tr class="tabletitle">
-								<td>Crée le </td>
-								<td>Crée par</td>
+								<td>CrÃ©e le </td>
+								<td>CrÃ©e par</td>
 								<td>Texte</td>
 								
 											
@@ -492,3 +492,4 @@ echo '</table>';
 ////////////////////////////////////////////////////////////////////////////////////////
 
 ?>
+
