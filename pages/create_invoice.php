@@ -41,34 +41,33 @@ Contac Mail : sebjsp@gmail.com
 	echo '<form id="form1"  name="form1" method="POST" action="index.php?page=create_invoice&id='.$id_client.'&id_service='.$id_service.'">
 						  <table>
 						<tr>
-							<td><span style="margin-left:100px;"><strong>Choix de la Durée : </td>
+							<td><span style="margin-left:100px;"><strong>Choix de la Durée : </strong></td>
 							<td> <table width="100%" border="0">
-      <tr class="tabletitle">
+	<tr class="tabletitle">
 	  <td></td>
 	  <td>Durée</td>
 	  <td>Prix</td>
 	
-	  
 	  </tr>';
 							
 						$reponse = mysql_query("SELECT * FROM prix_service WHERE service_type='VPS' AND service_id='$id_plan' ");
 								while ($sql = mysql_fetch_array($reponse) )
 								{
 															
-					echo '
 					
-					<tr>
+					echo '	<tr>
+				
 					<td><input type="radio" name="prix" value="'.$sql['id'].'"  /></td>
-					<td><center>'.$sql['jour_texte'].'</center></td>
-					<td><center>'.$sql['prix'].'</center></td>
-					</tr>';
+				<td><center>'.$sql['jour_texte'].'</center></td>
+				<td><center>'.$sql['prix'].'</center></td>
+							</tr>';
 								}
-						echo '</table</td>
+						echo '</table></td>
 						</tr><tr>
 						<td></td><td><input type="submit" value="Continuer ->"></td>
 												</tr>';
 					
-	echo '  <br></form></table></fieldset>';
+	echo '  <br/></table></form></fieldset>';
 	
 	
 	}
@@ -144,7 +143,7 @@ NULL , '" . $id_service . "', 'VPS', '".$id_prix."', '".$nbr_jour."', '1', '', '
  
 mysql_query("UPDATE vps SET facture_prolongation='". $facture_denriere ."' WHERE id='". $id_service ."'");
 
-$sujet = 'Facture #'.$facture_denriere.'[CMD-web]';
+$sujet = 'Facture #'.$facture_denriere.'[ENTREPRISE]';
 $message = '
 
 
@@ -159,7 +158,7 @@ Vous devez regler cette facture dans un délai d\'une semaine, sans quoi elle se
 
 Merci de vous rendre sur cette page afin de regler la facture :<br />
 
-https://panel.cmd-web.info/index.php?page=invoice&id='.$facture_denriere.'';
+https://nom-de-domaine.info/index.php?page=invoice&id='.$facture_denriere.'';
 $time = time();
 
 mysql_query("INSERT INTO `email` ( `id` , `id_client` , `mail` , `sujet` , `time` , `prioriter` , `etat` , `text` ) 
@@ -167,7 +166,7 @@ VALUES (
 NULL , '".$id_client."', '', '".$sujet."', '".$time."', '1', '1', '".$message."'
 )") or die(mysql_error());
 
-echo '<center><strong>La facture <a href="index.php?page=invoice&id='.$facture_denriere.'">#'.$facture_denriere.'</a> vient detre créée !';
+echo '<center><strong>La facture <a href="index.php?page=invoice&id='.$facture_denriere.'">#'.$facture_denriere.'</a> vient detre créée !</strong></center>';
 
 
 
@@ -191,7 +190,7 @@ echo '<center><strong>La facture <a href="index.php?page=invoice&id='.$facture_d
 	echo '<form id="form1"  name="form1" method="POST" action="index.php?page=create_invoice&id='.$id_client.'">
 						  <table>
 						<tr>
-							<td><span style="margin-left:100px;"><strong>Pour quel service ? : </td>
+							<td><span style="margin-left:100px;"><strong>Pour quel service ? : </strong></td>
 							<td> <table width="100%" border="0">
       <tr class="tabletitle">
 	  <td></td>
@@ -238,8 +237,9 @@ echo '<center><strong>La facture <a href="index.php?page=invoice&id='.$facture_d
 						<td></td><td><input type="submit" value="Continuer ->"></td>
 												</tr>';
 					
-	echo '  <br></form></table></fieldset>';
+	echo '  <br/></table></form></fieldset>';
 	
 }
 
 ?>
+
