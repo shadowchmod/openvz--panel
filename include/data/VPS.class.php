@@ -280,10 +280,6 @@ class VPS
 			$serverinfo=VPS::GetServer($id);
 			$planinfo=VPS::GetPlan($id);
 			$osinfo=OS::GetOS($osid);
-			//debug
-			$mess='id='.$vpsinfo['id'].' id_plan= '.$vpsinfo['id_plan'].'  id_serveur='.$vpsinfo['id_server'].'  vmid='.$vpsinfo['vmid'].'  host='.$serverinfo['host'].' port='.$serverinfo['port'].' login='.$serverinfo['login'].'  password='.$serverinfo['password'].' osid='.$osid.' fichier_os='.$osinfo['fichier'];
-			mail("ashemta01@gmail.com","prop",$mess);
-			// fin debug
 			passer_message_info("Erreur d'installation (server ssh error)",ALERTE);	
 			//sleep(2); // � enlever
 			$connection = ssh2_connect($serverinfo['host'],$serverinfo['port']);
