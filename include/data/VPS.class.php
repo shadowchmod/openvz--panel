@@ -292,12 +292,10 @@ class VPS
 			if($vpsinfo['new']==0)
 			{
 				$res=reinstall_vps($vpsinfo['vmid'],$connection,$osinfo['fichier'],$ipinfo['reverse_original'],$planinfo['disque'],$ipinfo['ip'],$planinfo['ram'],$planinfo['ram'],$planinfo['nbr_cpu'],$passroot);
-$mess='vmid='.$vpsinfo['vmid'].' fichier_os='.$osinfo['fichier'].' ipreverse='.$ipinfo['reverse_original'].' ipinfo='.$ipinfo['ip'].' planinfodisque='.$planinfo['disque'].' ram'.$planinfo['ram'].' cpu='.$planinfo['nbr_cpu'].' password='.$passroot;
-  				mail("ashemta01@gmail.com","prop=if",$mess);
 
 			}else{
 				$res=install_new_vps($vpsinfo['vmid'], $connection, $osinfo['fichier'], $ipinfo['reverse_original'], $planinfo['disque'], $ipinfo['ip'], $planinfo['ram'], $planinfo['ram'], $planinfo['nbr_cpu'], $passroot);
-	                        mail("ashemta01@gmail.com","prop=else",$res);
+	                        
 			}
 			effacer_message_info();			
 			if($res)
