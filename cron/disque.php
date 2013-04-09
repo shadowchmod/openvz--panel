@@ -35,7 +35,6 @@ function info($IDVPS, $connection){
 	$command =stripslashes($command);
 	//Lance la connection et exécute la commande
 	$stream = ssh2_exec($connection, $command);
-
 	//Attend que la commande s'exécute et termine
 	stream_set_blocking($stream, true);
 	
@@ -66,12 +65,13 @@ function info($IDVPS, $connection){
 }
 
 //Code pour sauvegarder le transfert Réseau de chaque VPS
-
+include ('bdd.php');
 // Code d'origine
-$host='localhost';
-$base=''; 	// base 
-$blogin=''; // username
-$bpass='';	// votre code d'acces
+
+//$host='localhost';
+//$base=''; 	// base 
+//$blogin=''; 	// username
+//$bpass='';	// votre code d'acces
 
 
 //On prépare la connection mysql

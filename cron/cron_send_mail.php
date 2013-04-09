@@ -1,5 +1,6 @@
 <?	
 //remplacer  your-domaine par votre nom de domaine
+// ligne 50 a 60
 	include ('bdd.php');
 mysql_connect($host, $blogin, $bpass); // Connexion à MySQL
 mysql_select_db($base); // Sélection de la base coursphp
