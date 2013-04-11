@@ -1,4 +1,8 @@
 <?php
+
+$searchdomain = '';
+$dns1 = '156.154.70.1';
+$dns2 = '156.154.71.1';
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 //-------- Auteur :                                                             ------------------------
@@ -139,7 +143,7 @@ function reinstall_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swap,
 	// Pour old version : Commande � ex�cuter
 	//$command='/usr/bin/pvectl vzcreate '.$IDVPS.' --disk '.$disque.' --ostemplate '.$OS.'  --hostname '.$hostname.'  --nameserver 127.0.0.1 --nameserver 213.186.33.99 --searchdomain ovh.net --onboot no --ipset '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl restart '.$IDVPS.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
 	// pour proxmox 2.X
-	$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver 213.186.33.99 -searchdomain ovh.net -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot.' && vzctl start '.$IDVPS;
+	$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver '.$dns1.' -nameserver '.$dns2.'  -searchdomain '.$searchdomain.' -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot.' && vzctl start '.$IDVPS;
 
 	//On arr�te le serveur
 	stop_destroy_vps($IDVPS, $connection);
@@ -192,7 +196,7 @@ function install_new_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swa
 	
 	//Commande � ex�cuter
 	//$command = '/usr/bin/pvectl vzcreate '.$IDVPS.' --disk '.$disque.' --ostemplate '.$OS.'  --hostname '.$hostname.'  --nameserver 127.0.0.1 --nameserver 213.186.33.99 --searchdomain ovh.net --onboot no --ipset '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl restart '.$IDVPS.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
-		$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver 213.186.33.99 -searchdomain ovh.net -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot.' && vzctl start '.$IDVPS;
+	$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver '.$dns1.' -nameserver '.$dns2.' -searchdomain '.$searchdomain.' -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot.' && vzctl start '.$IDVPS;
 	
   //On lance la commande
   $stream = ssh2_exec($connection, $command);
