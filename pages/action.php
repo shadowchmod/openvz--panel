@@ -23,37 +23,6 @@ $refer = rawurldecode($_POST['refer']);
 
 header("Location: ".$refer."");
 break;
-//Inscription d un client via le formulaire d'inscription
-case "inscription":
-if (isset($_POST))
-{
-        $nik=$_POST["nik"];
-        $nom=$_POST["nom"];
-        $prenom=$_POST["prenom"];
-        $mail=$_POST["mail"];
-        $mailconf=$_POST["mailconf"];
-        $pass=$_POST["pass"];
-        $passconf=$_POST["passconf"];
-        $telfixe=$_POST["telfixe"];
-        $telmobile=$_POST["telmobile"];
-        $adresse=$_POST["adresse"];
-        $ville=$_POST["ville"];
-        $cp=$_POST["cp"];
-        $pays=$_POST["pays"];
-        if (Client::Inscription($_POST["nik"],$_POST["nom"],$_POST["prenom"],$_POST["mail"],$_POST["mailconf"],$_POST["pass"],$_POST["passconf"],$_POST["telfixe"],$_P$
-        {
-            passer_message_info("inscription terminer",OK);
-            header("Location: index.php");
-        }else{
-            passer_message_info("Erreur lors de l inscription",ALERTE);
-            header("Location: index.php");
-        }
-
-}else{
-            passer_message_info("Paramï¿½tre manquant",AT^�E);
-            header("Location: index.php?page=admin/detail_serveur_root");
-}
-break;
 //D�connection de la seesion
 case "logout":
 Session::Fermer();
@@ -237,7 +206,7 @@ case "create_vps":
 if (isset($_POST))
 {
         $ipOKvmid=Ip::BlockIP($_POST["ip"],$_POST["server"]);
-        if($ipOKvmid!=true){
+        if($ipOKvmid!=false){
           $vpsid=VPS::CreateVPS($_POST["plan"],$_POST["server"],$_POST["ip"],$ipOKvmid);
           if ($vpsid!=false)
           {
