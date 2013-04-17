@@ -23,7 +23,38 @@ $refer = rawurldecode($_POST['refer']);
 
 header("Location: ".$refer."");
 break;
-//D�connection de la seesion
+//Inscription 
+case "inscription":
+if (isset($_POST))
+{
+        $nik=$_POST["nik"];
+        $nom=$_POST["nom"];
+        $prenom=$_POST["prenom"];
+        $mail=$_POST["mail"];
+        $mailconf=$_POST["mailconf"];
+        $pass=$_POST["pass"];
+        $passconf=$_POST["passconf"];
+	$telfixe=$_POST["telfixe"];
+	$telmobile=$_POST["telmobile"];
+	$adresse=$_POST["adresse"];
+	$ville=$_POST["ville"];
+	$cp=$_POST["cp"];
+	$pays=$_POST["pays"];
+	if (Client::Inscription($_POST["nik"],$_POST["nom"],$_POST["prenom"],$_POST["mail"],$_POST["mailconf"],$_POST["pass"],$_POST["passconf"],$_POST["telfixe"],$_POST["telmobile"],$_POST["adresse"],$_POST["ville"],$_POST["cp"],$_POST["pays"]))
+        {
+            passer_message_info("inscription terminer",OK);
+            header("Location: index.php");
+        }else{
+            passer_message_info("Erreur lors de l inscription",ALERTE);
+            header("Location: index.php");
+        }
+
+}else{
+            passer_message_info("Parametre manquant",AT^LERTE);
+            header("Location: index.php");
+}
+break;
+//Dï¿œconnection de la seesion
 case "logout":
 Session::Fermer();
 header("Location: index.php");
@@ -40,7 +71,7 @@ stocker_variables_formulaire($_POST);
 header("Location: index.php?page=admin/ajouter_client");
 }
 }else{
-passer_message_info("Vous ne poss�dez pas les droits pour cette action",ALERTE);
+passer_message_info("Vous ne possï¿œdez pas les droits pour cette action",ALERTE);
 header("Location: index.php");
 }
 break;
@@ -56,7 +87,7 @@ stocker_variables_formulaire($_POST);
 header("Location: index.php?page=new_client");
 }
 }else{
-passer_message_info("Vous ne poss�dez pas les droits pour cette action",ALERTE);
+passer_message_info("Vous ne possï¿œdez pas les droits pour cette action",ALERTE);
 header("Location: index.php");
 }
 break;
@@ -71,7 +102,7 @@ stocker_variables_formulaire($_POST);
 }
 header("Location: index.php?page=admin/detail_client&client=".$_POST['id']);
 }else{
-passer_message_info("Vous ne poss�dez pas les droits pour cette action",ALERTE);
+passer_message_info("Vous ne possï¿œdez pas les droits pour cette action",ALERTE);
 header("Location: index.php");
 }
 break;
@@ -104,7 +135,7 @@ header("Location: index.php?page=edit_profil");
 header("Location: index.php");
 }
 break;
-//Reg�n�rer le mot de passe (client)
+//Regï¿œnï¿œrer le mot de passe (client)
 case "regenpassword":
 if ( isset($_POST["nik"]))
 {
@@ -115,10 +146,10 @@ passer_message_info($pass,OK);
 if ($pass!=false)
 {
 effacer_message_info();
-passer_message_info("Un e-mail vous � �t� transmis avec le nouveau mot de passe",OK);
+passer_message_info("Un e-mail vous ï¿œ ï¿œtï¿œ transmis avec le nouveau mot de passe",OK);
 }else{
 //effacer_message_info();
-passer_message_info("Erreur lors de la r�g�n�ration du mot de passe",ALERTE);
+passer_message_info("Erreur lors de la rï¿œgï¿œnï¿œration du mot de passe",ALERTE);
 }
 header("Location: index.php");
 }else{
@@ -128,29 +159,29 @@ Session::LoginFail();
 header("Location: index.php?page=forget_pass");
 }	
 }else{
-passer_message_info("URL mal form�e",ALERTE);
+passer_message_info("URL mal formï¿œe",ALERTE);
 header("Location: index.php");
 }
 break;
-//Reg�n�rer le mot de passe (admin)
+//Regï¿œnï¿œrer le mot de passe (admin)
 case "resetpassword":
 if (Session::Ouverte() && Session::$Admin=true && isset($_GET["client"]))
 {
 if (($pass=Client::RegenPassword($_GET["client"]))!=false)
 {
 effacer_message_info();
-passer_message_info("Mot de passe r�g�n�rer. ".$pass,OK);
+passer_message_info("Mot de passe rï¿œgï¿œnï¿œrer. ".$pass,OK);
 }else{
 //effacer_message_info();
-passer_message_info("Erreur lors de la r�g�n�ration du mot de passe",ALERTE);
+passer_message_info("Erreur lors de la rï¿œgï¿œnï¿œration du mot de passe",ALERTE);
 }
 header("Location: index.php?page=admin/detail_client&client=".$_GET["client"]);
 }else{
-passer_message_info("Vous ne poss�dez pas les droits pour cette action",ALERTE);
+passer_message_info("Vous ne possï¿œdez pas les droits pour cette action",ALERTE);
 header("Location: index.php");
 }
 break;
-//G�n�re un nom de client
+//Gï¿œnï¿œre un nom de client
 case "generatenik":
 if (isset($_GET["letters"]))
 $letters=substr(strtoupper($_GET["letters"]),0,2);
@@ -161,7 +192,7 @@ while(Client::Existe($letters.$num."-HD"))
 $num=rand(10000,99999);
 echo $letters.$num."-HD";	
 break;
-//G�n�re un mot de pass
+//Gï¿œnï¿œre un mot de pass
 case "generatepass":
 $pass=strtoupper(substr(md5(rand(0,99999999999999)),0,9));
 echo $pass;
@@ -195,13 +226,13 @@ if (isset($_POST))
         }
 
 }else{
-            passer_message_info("Param�tre manquant",ALER�E);
+            passer_message_info("Paramï¿œtre manquant",ALERÃE);
             header("Location: index.php?page=admin/detail_serveur_root");
 }
 
 
 break;
-//Cr�ation d'un VPS":
+//Crï¿œation d'un VPS":
 case "create_vps":
 if (isset($_POST))
 {
@@ -210,14 +241,14 @@ if (isset($_POST))
           $vpsid=VPS::CreateVPS($_POST["plan"],$_POST["server"],$_POST["ip"],$ipOKvmid);
           if ($vpsid!=false)
           {
-            passer_message_info("VPS cr�er",OK);
+            passer_message_info("VPS crï¿œer",OK);
             header("Location: index.php?page=admin/detail_vps&vps=$vpsid");	
           }else{
-            passer_message_info("Erreur lors de la cr�ation du VPS",ALERTE);
+            passer_message_info("Erreur lors de la crï¿œation du VPS",ALERTE);
             header("Location: index.php?page=admin/ajouter_vps");
           }
         }else{
-            passer_message_info("Erreur lors de la cr�atiodu VPS 1",ALERTE);
+            passer_message_info("Erreur lors de la crï¿œatiodu VPS 1",ALERTE);
             header("Location: index.php?page=admin/ajouter_vps");
         }
 }else{
@@ -237,7 +268,7 @@ passer_message_info("Erreur lors de l'ajout du VPS au client",ALERTE);
 }
 header("Location: index.php?page=admin/detail_client&client=$clientid");	
 }else{
-passer_message_info("Param�tre manquant",ALERTE);
+passer_message_info("Paramï¿œtre manquant",ALERTE);
 header("Location: index.php");
 }
 break;
@@ -247,13 +278,13 @@ if (isset($_GET["vps"]))
 $vpsid=$_GET["vps"];
 if (VPS::LinkVPSToClient($_GET["vps"],0))
 {
-passer_message_info("VPS d�branch� du client",OK);
+passer_message_info("VPS dï¿œbranchï¿œ du client",OK);
 }else{
-passer_message_info("Erreur lors du d�branchement du VPS au client",ALERTE);
+passer_message_info("Erreur lors du dï¿œbranchement du VPS au client",ALERTE);
 }
 header("Location: index.php?page=admin/detail_vps&vps=$vpsid");	
 }else{
-passer_message_info("Param�tre manquant",ALERTE);
+passer_message_info("Paramï¿œtre manquant",ALERTE);
 header("Location: index.php");
 }	
 break;
@@ -264,13 +295,13 @@ if (isset($_GET["vps"]))
 $vpsid=$_GET["vps"];
 if (VPS::BlockVPSToClient($_GET["vps"]))
 {
-passer_message_info("VPS du client bloqu�",OK);
+passer_message_info("VPS du client bloquï¿œ",OK);
 }else{
 passer_message_info("Erreur lors du blocage du VPS au client",ALERTE);
 }
 header("Location: index.php?page=admin/detail_vps&vps=$vpsid");	
 }else{
-passer_message_info("Param�tre manquant",ALERTE);
+passer_message_info("Paramï¿œtre manquant",ALERTE);
 header("Location: index.php");
 }
     break;
@@ -281,13 +312,13 @@ if (isset($_GET["vps"]))
 $vpsid=$_GET["vps"];
 if (VPS::DeblockVPSToClient($_GET["vps"]))
 {
-passer_message_info("VPS du client r�activ�",OK);
+passer_message_info("VPS du client rï¿œactivï¿œ",OK);
 }else{
-passer_message_info("Erreur lors de la r�activation du VPS au client",ALERTE);
+passer_message_info("Erreur lors de la rï¿œactivation du VPS au client",ALERTE);
 }
 header("Location: index.php?page=admin/detail_vps&vps=$vpsid");	
 }else{
-passer_message_info("Param�tre manquant",ALERTE);
+passer_message_info("Paramï¿œtre manquant",ALERTE);
 header("Location: index.php");
 }
     break;
@@ -303,17 +334,17 @@ if(VPS::DeleteVPS($vpsid))
           else
             header("Location: index.php?page=admin/detail_vps&vps=$vpsid");	
 }else{
-passer_message_info("Erreur ce VPS appartient encore à un client",ALERTE);
+passer_message_info("Erreur ce VPS appartient encore Ã  un client",ALERTE);
 header("Location: index.php?page=admin/detail_vps&vps=$vpsid");	
 }
 
 }else{
-passer_message_info("Paramétre manquant",ALERTE);
+passer_message_info("ParamÃ©tre manquant",ALERTE);
 header("Location: index.php");
 }
     break;
 
-//Red�marage d'un VPS
+//Redï¿œmarage d'un VPS
 case "reboot":
 echo VPS::Reboot($_GET["vps"]);
 if (isset($_GET["noredirect"])==false)
@@ -355,7 +386,7 @@ if (Session::Ouverte() && Session::$Client!=NULL && isset($_GET["vps"]) && isset
          header("Location: index.php?page=new_root&vps=".$_GET["vps"]);
       }
     }else{
-      passer_message_info("Acc�s interdit",ALERTE);
+      passer_message_info("Accï¿œs interdit",ALERTE);
 header("Location: index.php?page=new_root&vps=".$_GET["vps"]);
     }
 break;
@@ -367,10 +398,10 @@ if (Session::Ouverte() && Session::$Client!=NULL)
       //Ajoute un message a l'objet
         if(Session::$Client->Id==Messagerie::GetClientObjet($_GET['titre'])){
           if(Messagerie::PostMessage($_GET['titre'],Session::$Client->Id,addslashes(strip_tags($_POST['message'])))){
-            passer_message_info("Message envoy�",ALERTE);
+            passer_message_info("Message envoyï¿œ",ALERTE);
             header("Location: index.php?page=messagerie");
           }else{
-            passer_message_info("Erreur, Message non envoy�",ALERTE);
+            passer_message_info("Erreur, Message non envoyï¿œ",ALERTE);
             header("Location: index.php?page=messagerie");
           }
         }else{
@@ -383,18 +414,18 @@ if (Session::Ouverte() && Session::$Client!=NULL)
           if(Messagerie::NewObjet(Session::$Client->Id,addslashes($_POST['objet']))){
             $idobjet=DB::GetInsertId();
             if(Messagerie::PostMessage($idobjet,Session::$Client->Id,addslashes(strip_tags($_POST['message'])))){
-              passer_message_info("Message envoy�",ALERTE);
+              passer_message_info("Message envoyï¿œ",ALERTE);
               header("Location: index.php?page=messagerie");
             }else{
-              passer_message_info("Erreur, Message non envoy�",ALERTE);
+              passer_message_info("Erreur, Message non envoyï¿œ",ALERTE);
               header("Location: index.php?page=messagerie");
             }
           }else{
-            passer_message_info("Erreur, Message non envoy�",ALERTE);
+            passer_message_info("Erreur, Message non envoyï¿œ",ALERTE);
             header("Location: index.php?page=messagerie");
           }
         }else{
-          passer_message_info("Erreur, Message non envoy�",ALERTE);
+          passer_message_info("Erreur, Message non envoyï¿œ",ALERTE);
           header("Location: index.php?page=messagerie");
         }
       }
@@ -408,10 +439,10 @@ case "post_message_admin":
       if(isset($_POST['message'])){
       //Ajoute un message a l'objet
           if(Messagerie::PostMessageAdmin($_GET['titre'],addslashes($_POST['message']))){
-            passer_message_info("Message envoy�",ALERTE);
+            passer_message_info("Message envoyï¿œ",ALERTE);
             header("Location: index.php?page=admin/messagerie");
           }else{
-            passer_message_info("Erreur, Message non envoy�",ALERTE);
+            passer_message_info("Erreur, Message non envoyï¿œ",ALERTE);
             header("Location: index.php?page=admin/messagerie");
           }
       }else{

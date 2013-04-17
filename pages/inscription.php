@@ -31,7 +31,7 @@
 					<tr>
 						<th> 
 							<center>
-								<form id="form1" name="form1" method="post" action="index.php?page=action2&amp;action=inscription">
+								<form id="form1" name="form1" method="post" action="index.php?page=action&amp;action=inscription">
 									<table width="100%" border="0">
 										<tr>
 										<td>

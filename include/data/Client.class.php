@@ -19,9 +19,73 @@ class Client
 	var $Cp;
 	var $Adresse;
 	var $Pays;
-	
 
-//inscription via formulaire
+	/**
+	* Retourne les information d'un membre à partir de son identifiant
+	*
+	* id : identifiant du membre
+	*/
+	public static function GetClient($id)
+	{
+		// Récupére les information d'un membre
+		$users=DB::SqlToArray("SELECT * FROM client WHERE `id`=$id");
+		// Retourne les informations du membre
+		if (count($users)==1)
+			return $users[0];
+		else 
+			return false;
+	}
+	
+	
+	public static function GetClientFromNik($nik)
+	{
+		$nik=ProtectSQL($nik);
+		// Récupére les information d'un membre
+		$users=DB::SqlToArray("SELECT * FROM client WHERE `nikhandle`='$nik'");
+		// Retourne les informations du membre
+		if (count($users)==1)
+			return $users[0];
+		else 
+			return false;
+	}
+	
+	/**
+	* Retourne la liste des clients
+	*/
+	public static function GetClientList($page=1,$parPage=20,$sortid=0)
+	{
+		switch ($sortid)
+		{
+		case 0:
+			$sort="id";
+			break;
+		case 1:
+			$sort="nikhandle";
+			break;
+		case 2:
+			$sort="nom";
+			break;
+		case 3:
+			$sort="prenom";
+			break;
+		case 4:
+			$sort="email";
+			break;
+		case 5:
+			$sort="etat";
+			break;
+		}
+
+		$start=($page-1)*$parPage;
+		$users=DB::SqlToArray("SELECT * FROM `client` ORDER BY `client`.`$sort` ASC LIMIT $start , $parPage");
+		return $users;
+	}
+	
+	public static function GetClientCount()
+	{
+		return DB::SqlCount("SELECT * FROM `client`");
+	}
+//inscription
 	public static function Inscription($nik,$nom,$prenom,$mail,$mailconf,$pass,$passconf,$telfixe,$telmobile,$adresse,$ville,$cp,$pays)
 	{
 		$nik=ProtectSQL($nik);
@@ -150,72 +214,6 @@ Contact email : support@your-domaine.fr
                 }
         }
 
-	/**
-	* Retourne les information d'un membre à partir de son identifiant
-	*
-	* id : identifiant du membre
-	*/
-	public static function GetClient($id)
-	{
-		// Récupére les information d'un membre
-		$users=DB::SqlToArray("SELECT * FROM client WHERE `id`=$id");
-		// Retourne les informations du membre
-		if (count($users)==1)
-			return $users[0];
-		else 
-			return false;
-	}
-	
-	
-	public static function GetClientFromNik($nik)
-	{
-		$nik=ProtectSQL($nik);
-		// Récupére les information d'un membre
-		$users=DB::SqlToArray("SELECT * FROM client WHERE `nikhandle`='$nik'");
-		// Retourne les informations du membre
-		if (count($users)==1)
-			return $users[0];
-		else 
-			return false;
-	}
-	
-	/**
-	* Retourne la liste des clients
-	*/
-	public static function GetClientList($page=1,$parPage=20,$sortid=0)
-	{
-		switch ($sortid)
-		{
-		case 0:
-			$sort="id";
-			break;
-		case 1:
-			$sort="nikhandle";
-			break;
-		case 2:
-			$sort="nom";
-			break;
-		case 3:
-			$sort="prenom";
-			break;
-		case 4:
-			$sort="email";
-			break;
-		case 5:
-			$sort="etat";
-			break;
-		}
-
-		$start=($page-1)*$parPage;
-		$users=DB::SqlToArray("SELECT * FROM `client` ORDER BY `client`.`$sort` ASC LIMIT $start , $parPage");
-		return $users;
-	}
-	
-	public static function GetClientCount()
-	{
-		return DB::SqlCount("SELECT * FROM `client`");
-	}
-	
 	/**
 	* Inscrit un nouveau membre
 	*
