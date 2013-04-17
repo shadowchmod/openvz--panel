@@ -7,7 +7,7 @@ $dns2 = '156.154.71.1';
 //------------------------------------------------------------------------------------------------------
 //-------- Auteur :                                                             ------------------------
 //-------- Email :                                                              ------------------------
-//-------- Année : 2009                                                         ------------------------
+//-------- Année : 2009                                                        ------------------------
 //------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
@@ -143,7 +143,8 @@ function reinstall_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swap,
 	// Pour old version : Commande � ex�cuter
 	//$command='/usr/bin/pvectl vzcreate '.$IDVPS.' --disk '.$disque.' --ostemplate '.$OS.'  --hostname '.$hostname.'  --nameserver 127.0.0.1 --nameserver 213.186.33.99 --searchdomain ovh.net --onboot no --ipset '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl restart '.$IDVPS.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
 	// pour proxmox 2.X
-	$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver '.$dns1.' -nameserver '.$dns2.'  -searchdomain '.$searchdomain.' -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot.' && vzctl start '.$IDVPS;
+ $command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver 156.154.70.1 -nameserver 156.154.71.1  -searchdomain heberge-hd.net -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot.' && sleep 10 && vzctl start '.$IDVPS;
+ $command0='sleep 10 && vzctl exec '.$IDVPS.' echo -e "auto eth0 \niface eth0 inet static \n\taddress '.$ip.' \n\tnetmask 255.255.255.0 \n\tgateway 192.168.5.1 \n\tbroadcast 192.168.5.255" > /etc/network/interfaces';
 
 	//On arr�te le serveur
 	stop_destroy_vps($IDVPS, $connection);
@@ -152,6 +153,10 @@ function reinstall_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swap,
   $stream = ssh2_exec($connection, $command );
   stream_set_blocking($stream, true);
 	
+	//on lance la configuration des ip
+	 $stream0 = ssh2_exec($connection, $command0 );
+  	 stream_set_blocking($stream0, true);
+
 	//R�cup�re le r�sultat
 	$rep="";
 	while($line = fgets($stream)){
@@ -160,11 +165,12 @@ function reinstall_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swap,
 	}
 	//Ferme la connection
 	fclose($stream);
+	fclose($stream0);
 
 	if($stream!=false){
 		return true;
 	}else{
-	
+
 
 	$ok=stripos($rep,"Container start in progress");
 	$time=time();
@@ -196,12 +202,15 @@ function install_new_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swa
 	
 	//Commande � ex�cuter
 	//$command = '/usr/bin/pvectl vzcreate '.$IDVPS.' --disk '.$disque.' --ostemplate '.$OS.'  --hostname '.$hostname.'  --nameserver 127.0.0.1 --nameserver 213.186.33.99 --searchdomain ovh.net --onboot no --ipset '.$ip.' --swap '.$swap.' --mem '.$memoire.' --cpus '.$cpu.' && vzctl restart '.$IDVPS.' && vzctl set '.$IDVPS.' --userpasswd root:'.$passroot;
-	$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver '.$dns1.' -nameserver '.$dns2.' -searchdomain '.$searchdomain.' -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot.' && vzctl start '.$IDVPS;
-	
+$command='/usr/bin/pvectl create -vmid '.$IDVPS.' -ostemplate '.$OS.' -disk '.$disque.' -hostname '.$hostname.' -nameserver 156.154.70.1 -nameserver 156.154.71.1  -searchdomain heberge-hd.net -onboot 1 -ip_address '.$ip.' -swap '.$swap.' -memory '.$memoire.' -cpus '.$cpu.' -password '.$passroot.' && sleep 10 && vzctl start '.$IDVPS;
+$command0='sleep 10 && vzctl exec '.$IDVPS.' echo -e "auto eth0 \niface eth0 inet static \n\taddress '.$ip.' \n\tnetmask 255.255.255.0 \n\tgateway 192.168.5.1 \n\tbroadcast 192.168.5.255" > /etc/network/interfaces';
+
   //On lance la commande
   $stream = ssh2_exec($connection, $command);
   stream_set_blocking($stream, true);
-  
+
+  $stream0 = ssh2_exec($connection, $command0);
+  stream_set_blocking($stream0, true);
 	//R�cup�re le r�sultat
 	$rep="";
 	while($line = fgets($stream)){
@@ -209,6 +218,7 @@ function install_new_vps($IDVPS, $connection, $OS, $hostname, $disque, $ip, $swa
 	}
 	//Ferme la connection
 	fclose($stream);
+	fclose($stream0);
 
 	
 	if($stream!=false){
