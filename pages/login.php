@@ -30,8 +30,8 @@
                             <input type="submit" name="Envoyer" id="Envoyer" value="Envoyer" />
                         </label>
                     </p>
-					<p><a href="index.php?page=forget_pass">Mot de passe oubli&eacute;</a></p>
-					<p><a href="index.php?page=inscription">Je m inscrit<a></p>
+					<p><a href="forget_pass.php">Mot de passe oubli&eacute;</a></p>
+					<p><a href="inscription.php">Je m inscrit<a></p>
 
 <input type="hidden" name="refer" value="<?echo $var_encoer;?>" />
 </form>
